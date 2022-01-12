@@ -1,1 +1,4 @@
-CMakeLists.txt not found in /Users/ilavolodin/CLionProjects/calculator_hse/c_solution Select CMakeLists.txt
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/ilavolodin/CLionProjects/calculator_hse/c_solution
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug

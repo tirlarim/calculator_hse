@@ -1,0 +1,4 @@
+#ifndef C_SOLUTION_ARRAYS_H
+#define C_SOLUTION_ARRAYS_H
+
+#endif
