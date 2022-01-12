@@ -17,7 +17,7 @@ void resize(ARRAY* arr){
     arr->max_size=arr->max_size*2+1;
 }
 
-void add(ARRAY* arr, WORD* word){
+void push(ARRAY* arr, WORD* word){
     if (arr->current==arr->max_size){
         resize(arr);
     }

@@ -153,6 +153,30 @@ arrays.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/arrays.c.s
 .PHONY : arrays.c.s
 
+is_smh.o: is_smh.c.o
+.PHONY : is_smh.o
+
+# target to build an object file
+is_smh.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh.c.o
+.PHONY : is_smh.c.o
+
+is_smh.i: is_smh.c.i
+.PHONY : is_smh.i
+
+# target to preprocess a source file
+is_smh.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh.c.i
+.PHONY : is_smh.c.i
+
+is_smh.s: is_smh.c.s
+.PHONY : is_smh.s
+
+# target to generate assembly for a file
+is_smh.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh.c.s
+.PHONY : is_smh.c.s
+
 main.o: main.c.o
 .PHONY : main.o
 
@@ -177,29 +201,29 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/main.c.s
 .PHONY : main.c.s
 
-parse.o: parse.c.o
-.PHONY : parse.o
+polska.o: polska.c.o
+.PHONY : polska.o
 
 # target to build an object file
-parse.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/parse.c.o
-.PHONY : parse.c.o
+polska.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polska.c.o
+.PHONY : polska.c.o
 
-parse.i: parse.c.i
-.PHONY : parse.i
+polska.i: polska.c.i
+.PHONY : polska.i
 
 # target to preprocess a source file
-parse.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/parse.c.i
-.PHONY : parse.c.i
+polska.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polska.c.i
+.PHONY : polska.c.i
 
-parse.s: parse.c.s
-.PHONY : parse.s
+polska.s: polska.c.s
+.PHONY : polska.s
 
 # target to generate assembly for a file
-parse.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/parse.c.s
-.PHONY : parse.c.s
+polska.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polska.c.s
+.PHONY : polska.c.s
 
 # Help Target
 help:
@@ -213,12 +237,15 @@ help:
 	@echo "... arrays.o"
 	@echo "... arrays.i"
 	@echo "... arrays.s"
+	@echo "... is_smh.o"
+	@echo "... is_smh.i"
+	@echo "... is_smh.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... parse.o"
-	@echo "... parse.i"
-	@echo "... parse.s"
+	@echo "... polska.o"
+	@echo "... polska.i"
+	@echo "... polska.s"
 .PHONY : help
 
 

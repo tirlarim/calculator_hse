@@ -82,13 +82,19 @@
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h">
 			<Option target="c_solution"/>
 		</Unit>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.c">
+			<Option target="c_solution"/>
+		</Unit>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.h">
+			<Option target="c_solution"/>
+		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/main.c">
 			<Option target="c_solution"/>
 		</Unit>
-		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/parse.c">
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.c">
 			<Option target="c_solution"/>
 		</Unit>
-		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/parse.h">
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.h">
 			<Option target="c_solution"/>
 		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/CMakeLists.txt">

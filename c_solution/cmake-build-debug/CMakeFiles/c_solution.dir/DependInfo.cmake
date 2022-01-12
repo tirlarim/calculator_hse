@@ -9,8 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/arrays.c.o"
+  "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/is_smh.c.o"
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/main.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/main.c.o"
-  "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/parse.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/parse.c.o"
+  "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/polska.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

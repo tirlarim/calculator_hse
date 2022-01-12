@@ -3,6 +3,7 @@
 
 typedef struct{
     char st[20];
+    int current;
 }WORD;
 
 typedef struct{
@@ -13,7 +14,7 @@ typedef struct{
 
 void init_arr(ARRAY* arr);
 void resize(ARRAY* arr);
-void add(ARRAY* arr,WORD* word);
+void push(ARRAY* arr,WORD* word);
 void arr_print(ARRAY* arr);
 
 #endif
