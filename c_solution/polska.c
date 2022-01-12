@@ -19,7 +19,7 @@ void Parse(){
     for (int i=0;i<=strlen(expression);++i){
         if (expression[i]==' ') continue;
         if (is_op_or_bracket(&expression[i]) || i==strlen(expression)){
-            if ((is_num(&buf) || !is_function(&buf))){
+            if (is_num(&buf) || !is_function(&buf) || is_const(&buf)){
                 if (strlen(buf.st)!=0) push(&list,&buf);
             }
             else{
