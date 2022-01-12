@@ -4,7 +4,9 @@ int main(){
     freopen("input.txt","r",stdin);
     freopen("output.txt","w",stdout);
 
-    //t
+    int n;
+    scanf("%d",&n);
+    printf("%d",n);
 
     fclose(stdin);
     fclose(stdout);
