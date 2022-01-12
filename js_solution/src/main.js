@@ -1,11 +1,12 @@
 `use strict`;
 
 const calculator = (mathProblemArr) => {
-  const operations = {
-    multiplication: `*`,
-    division: `/`,
-    addition: `+`,
-    subtraction: `-`,
+  const operation = {
+    multiply: `*`,
+    divide: `/`,
+    add: `+`,
+    subtract: `-`,
+    exponent: `^`,
   }
   const brackets = {
     open: `(`,
@@ -32,22 +33,26 @@ const calculator = (mathProblemArr) => {
   }
   if (!mathProblemArr.includes(brackets.open)) {
     while (mathProblemArr.length > 1) {
-      while (mathProblemArr.includes(operations.multiplication) || mathProblemArr.includes(operations.division)) {
-        let multiplicationSymbolIndex = mathProblemArr.indexOf(operations.multiplication);
-        let divisionSymbolIndex = mathProblemArr.indexOf(operations.division);
-        if ((divisionSymbolIndex === -1 || multiplicationSymbolIndex <= divisionSymbolIndex) && multiplicationSymbolIndex !== -1) {
-          mathProblemArr = [...mathProblemArr.slice(0, multiplicationSymbolIndex-1), mathProblemArr[multiplicationSymbolIndex-1] * mathProblemArr[multiplicationSymbolIndex+1], ...mathProblemArr.slice(multiplicationSymbolIndex+2)];
+      while (mathProblemArr.includes(operation.exponent)) {
+        let exponentSymbolIndex = mathProblemArr.indexOf(operation.exponent);
+        mathProblemArr = [...mathProblemArr.slice(0, exponentSymbolIndex-1), Math.pow(mathProblemArr[exponentSymbolIndex-1], mathProblemArr[exponentSymbolIndex+1]), ...mathProblemArr.slice(exponentSymbolIndex+2)];
+      }
+      while (mathProblemArr.includes(operation.multiply) || mathProblemArr.includes(operation.divide)) {
+        let multiplySymbolIndex = mathProblemArr.indexOf(operation.multiply);
+        let divideSymbolIndex = mathProblemArr.indexOf(operation.divide);
+        if ((divideSymbolIndex === -1 || multiplySymbolIndex <= divideSymbolIndex) && multiplySymbolIndex !== -1) {
+          mathProblemArr = [...mathProblemArr.slice(0, multiplySymbolIndex-1), mathProblemArr[multiplySymbolIndex-1] * mathProblemArr[multiplySymbolIndex+1], ...mathProblemArr.slice(multiplySymbolIndex+2)];
         } else {
-          mathProblemArr = [...mathProblemArr.slice(0, divisionSymbolIndex-1), mathProblemArr[divisionSymbolIndex-1] / mathProblemArr[divisionSymbolIndex+1], ...mathProblemArr.slice(divisionSymbolIndex+2)];
+          mathProblemArr = [...mathProblemArr.slice(0, divideSymbolIndex-1), mathProblemArr[divideSymbolIndex-1] / mathProblemArr[divideSymbolIndex+1], ...mathProblemArr.slice(divideSymbolIndex+2)];
         }
       }
-      while (mathProblemArr.includes(operations.addition) || mathProblemArr.includes(operations.subtraction)) {
-        let additionSymbolIndex = mathProblemArr.indexOf(operations.addition);
-        let subtractionSymbolIndex = mathProblemArr.indexOf(operations.subtraction);
-        if ((subtractionSymbolIndex === -1 || additionSymbolIndex <= subtractionSymbolIndex) && additionSymbolIndex !== -1) {
-          mathProblemArr = [...mathProblemArr.slice(0, additionSymbolIndex-1), mathProblemArr[additionSymbolIndex-1] + mathProblemArr[additionSymbolIndex+1], ...mathProblemArr.slice(additionSymbolIndex+2)];
+      while (mathProblemArr.includes(operation.add) || mathProblemArr.includes(operation.subtract)) {
+        let addSymbolIndex = mathProblemArr.indexOf(operation.add);
+        let subtractSymbolIndex = mathProblemArr.indexOf(operation.subtract);
+        if ((subtractSymbolIndex === -1 || addSymbolIndex <= subtractSymbolIndex) && addSymbolIndex !== -1) {
+          mathProblemArr = [...mathProblemArr.slice(0, addSymbolIndex-1), mathProblemArr[addSymbolIndex-1] + mathProblemArr[addSymbolIndex+1], ...mathProblemArr.slice(addSymbolIndex+2)];
         } else {
-          mathProblemArr = [...mathProblemArr.slice(0, subtractionSymbolIndex-1), mathProblemArr[subtractionSymbolIndex-1] - mathProblemArr[subtractionSymbolIndex+1], ...mathProblemArr.slice(subtractionSymbolIndex+2)];
+          mathProblemArr = [...mathProblemArr.slice(0, subtractSymbolIndex-1), mathProblemArr[subtractSymbolIndex-1] - mathProblemArr[subtractSymbolIndex+1], ...mathProblemArr.slice(subtractSymbolIndex+2)];
         }
       }
     }
@@ -63,7 +68,7 @@ const task = () => {
   problem.forEach((item, index) => Object.keys(values).includes(item) ? problem[index] = values[item] : item);
   console.log(...problem);
   console.log(values);
-  // console.log(calculator(problem));
+  console.log(calculator(problem));
 }
 
 task();
