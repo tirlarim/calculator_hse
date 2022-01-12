@@ -2,8 +2,11 @@
 
 int main(){
     freopen("input.txt","r",stdin);
-    int n;
-    scanf("%d",&n);
-    printf("%d",n);
+    freopen("output.txt","w",stdout);
+
+    //t
+
+    fclose(stdin);
+    fclose(stdout);
     return 0;
 }
