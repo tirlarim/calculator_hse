@@ -1,0 +1,30 @@
+{
+  "name": "calculator_hse",
+  "version": "1.0.0",
+  "description": "hse project",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "../node_modules/.bin/gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "calculator",
+    "hse",
+    "2022",
+    "team work"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "del": "^5.0.0",
+    "npm": "^6.14.15",
+    "vinyl-sourcemaps-apply": "^0.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-javascript-obfuscator": "^1.1.6"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
+}
