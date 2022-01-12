@@ -5,4 +5,5 @@ CMakeFiles/c_solution.dir/arrays.c.o: \
  ../arrays.c \
  ../arrays.h
 CMakeFiles/c_solution.dir/main.c.o: \
+ ../arrays.h \
  ../main.c

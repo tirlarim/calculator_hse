@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/main.c
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.c
+arrays.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h
 stdio.h
 -
+stdlib.h
+-
+
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h
 

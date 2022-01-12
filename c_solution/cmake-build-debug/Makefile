@@ -177,6 +177,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/main.c.s
 .PHONY : main.c.s
 
+parse.o: parse.c.o
+.PHONY : parse.o
+
+# target to build an object file
+parse.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/parse.c.o
+.PHONY : parse.c.o
+
+parse.i: parse.c.i
+.PHONY : parse.i
+
+# target to preprocess a source file
+parse.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/parse.c.i
+.PHONY : parse.c.i
+
+parse.s: parse.c.s
+.PHONY : parse.s
+
+# target to generate assembly for a file
+parse.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/parse.c.s
+.PHONY : parse.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... parse.o"
+	@echo "... parse.i"
+	@echo "... parse.s"
 .PHONY : help
 
 

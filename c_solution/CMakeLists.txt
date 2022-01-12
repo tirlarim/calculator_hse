@@ -3,4 +3,4 @@ project(c_solution C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(c_solution main.c arrays.c arrays.h arrays.c arrays.h)
+add_executable(c_solution main.c arrays.c arrays.h arrays.c arrays.h parse.c parse.h)

@@ -85,6 +85,12 @@
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/main.c">
 			<Option target="c_solution"/>
 		</Unit>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/parse.c">
+			<Option target="c_solution"/>
+		</Unit>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/parse.h">
+			<Option target="c_solution"/>
+		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

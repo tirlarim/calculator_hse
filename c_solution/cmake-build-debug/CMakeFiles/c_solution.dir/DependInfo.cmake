@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/arrays.c.o"
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/main.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/main.c.o"
+  "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/parse.c" "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir/parse.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
