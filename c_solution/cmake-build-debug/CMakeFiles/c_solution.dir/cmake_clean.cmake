@@ -1,8 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/c_solution.dir/actions.c.o"
   "CMakeFiles/c_solution.dir/arrays.c.o"
-  "CMakeFiles/c_solution.dir/is_smh.c.o"
+  "CMakeFiles/c_solution.dir/is_smh_compare.c.o"
   "CMakeFiles/c_solution.dir/main.c.o"
-  "CMakeFiles/c_solution.dir/polska.c.o"
+  "CMakeFiles/c_solution.dir/polish.c.o"
   "c_solution"
   "c_solution.pdb"
 )

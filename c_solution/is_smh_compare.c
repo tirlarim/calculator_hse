@@ -1,9 +1,14 @@
-#include "is_smh.h"
+#include "is_smh_compare.h"
 #include <string.h>
 
 int is_dig(const char* s){
     if (*s=='0' || *s=='1' || *s=='2' || *s=='3' || *s=='4' || *s=='5' || *s=='6' || *s=='7' || *s=='8' || *s=='9' || *s=='.')
         return 1;
+    return 0;
+}
+
+int is_u_min(const char* s, const char* previous_s,const int* i){
+    if (*s=='-' && (*previous_s=='(' || *i==0)) return 1;
     return 0;
 }
 
@@ -17,7 +22,7 @@ int is_num(const WORD* word){
 }
 
 int is_op_or_bracket(const char* s){
-    if (*s=='+' || *s=='-' || *s=='*' || *s=='/' || *s=='(' || *s==')' || *s=='^')
+    if (*s=='+' || *s=='-' || *s=='*' || *s=='/' || *s=='^' || *s=='(' || *s==')')
         return 1;
     return 0;
 }
@@ -36,4 +41,13 @@ int is_const(const WORD* word){
         return 1;
     return 0;
 }
+
+int compare(const char* to, const char* vs){
+    if ((*to=='-' || *to=='+') && (*vs=='/' || *vs=='*' || *vs=='^' || *vs=='-' || *vs=='+' || *vs=='u')) return 1;
+    if ((*to=='/' || *to=='*') && (*vs=='/' || *vs=='*' || *vs=='^' || *vs=='u')) return 1;
+    if (*to=='^' && (*vs=='^' || *vs=='u')) return 1;
+    if (*to=='u' && *vs=='u') return 1;
+    return 0;
+}
+
 

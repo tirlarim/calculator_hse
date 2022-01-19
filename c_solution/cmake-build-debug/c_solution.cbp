@@ -76,25 +76,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.c">
+			<Option target="c_solution"/>
+		</Unit>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.h">
+			<Option target="c_solution"/>
+		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.c">
 			<Option target="c_solution"/>
 		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h">
 			<Option target="c_solution"/>
 		</Unit>
-		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.c">
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.c">
 			<Option target="c_solution"/>
 		</Unit>
-		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.h">
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.h">
 			<Option target="c_solution"/>
 		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/main.c">
 			<Option target="c_solution"/>
 		</Unit>
-		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.c">
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.c">
 			<Option target="c_solution"/>
 		</Unit>
-		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.h">
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.h">
 			<Option target="c_solution"/>
 		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/CMakeLists.txt">

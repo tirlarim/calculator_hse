@@ -6,31 +6,37 @@
 
 #IncludeRegexTransform: 
 
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.h
+arrays.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h
+is_smh_compare.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.h
+
 /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h
 
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.c
-is_smh.h
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.h
-string.h
--
-
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.h
 arrays.h
 /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h
 
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.c
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/main.c
+polish.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.h
+
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.c
 arrays.h
 /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h
-polska.h
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.h
-is_smh.h
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.h
+actions.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.h
+polish.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.h
+is_smh_compare.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.h
 stdio.h
 -
 string.h
 -
 
-/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.h
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.h
 arrays.h
 /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h
 

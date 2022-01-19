@@ -129,6 +129,30 @@ c_solution/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/build
 .PHONY : c_solution/fast
 
+actions.o: actions.c.o
+.PHONY : actions.o
+
+# target to build an object file
+actions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/actions.c.o
+.PHONY : actions.c.o
+
+actions.i: actions.c.i
+.PHONY : actions.i
+
+# target to preprocess a source file
+actions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/actions.c.i
+.PHONY : actions.c.i
+
+actions.s: actions.c.s
+.PHONY : actions.s
+
+# target to generate assembly for a file
+actions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/actions.c.s
+.PHONY : actions.c.s
+
 arrays.o: arrays.c.o
 .PHONY : arrays.o
 
@@ -153,29 +177,29 @@ arrays.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/arrays.c.s
 .PHONY : arrays.c.s
 
-is_smh.o: is_smh.c.o
-.PHONY : is_smh.o
+is_smh_compare.o: is_smh_compare.c.o
+.PHONY : is_smh_compare.o
 
 # target to build an object file
-is_smh.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh.c.o
-.PHONY : is_smh.c.o
+is_smh_compare.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh_compare.c.o
+.PHONY : is_smh_compare.c.o
 
-is_smh.i: is_smh.c.i
-.PHONY : is_smh.i
+is_smh_compare.i: is_smh_compare.c.i
+.PHONY : is_smh_compare.i
 
 # target to preprocess a source file
-is_smh.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh.c.i
-.PHONY : is_smh.c.i
+is_smh_compare.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh_compare.c.i
+.PHONY : is_smh_compare.c.i
 
-is_smh.s: is_smh.c.s
-.PHONY : is_smh.s
+is_smh_compare.s: is_smh_compare.c.s
+.PHONY : is_smh_compare.s
 
 # target to generate assembly for a file
-is_smh.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh.c.s
-.PHONY : is_smh.c.s
+is_smh_compare.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh_compare.c.s
+.PHONY : is_smh_compare.c.s
 
 main.o: main.c.o
 .PHONY : main.o
@@ -201,29 +225,29 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/main.c.s
 .PHONY : main.c.s
 
-polska.o: polska.c.o
-.PHONY : polska.o
+polish.o: polish.c.o
+.PHONY : polish.o
 
 # target to build an object file
-polska.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polska.c.o
-.PHONY : polska.c.o
+polish.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polish.c.o
+.PHONY : polish.c.o
 
-polska.i: polska.c.i
-.PHONY : polska.i
+polish.i: polish.c.i
+.PHONY : polish.i
 
 # target to preprocess a source file
-polska.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polska.c.i
-.PHONY : polska.c.i
+polish.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polish.c.i
+.PHONY : polish.c.i
 
-polska.s: polska.c.s
-.PHONY : polska.s
+polish.s: polish.c.s
+.PHONY : polish.s
 
 # target to generate assembly for a file
-polska.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polska.c.s
-.PHONY : polska.c.s
+polish.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/polish.c.s
+.PHONY : polish.c.s
 
 # Help Target
 help:
@@ -234,18 +258,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... c_solution"
+	@echo "... actions.o"
+	@echo "... actions.i"
+	@echo "... actions.s"
 	@echo "... arrays.o"
 	@echo "... arrays.i"
 	@echo "... arrays.s"
-	@echo "... is_smh.o"
-	@echo "... is_smh.i"
-	@echo "... is_smh.s"
+	@echo "... is_smh_compare.o"
+	@echo "... is_smh_compare.i"
+	@echo "... is_smh_compare.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... polska.o"
-	@echo "... polska.i"
-	@echo "... polska.s"
+	@echo "... polish.o"
+	@echo "... polish.i"
+	@echo "... polish.s"
 .PHONY : help
 
 

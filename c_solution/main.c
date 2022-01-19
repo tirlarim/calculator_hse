@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include "polska.h"
+#include "polish.h"
 int main(){
-    Parse();
+    Calculations();
     return 0;
 }

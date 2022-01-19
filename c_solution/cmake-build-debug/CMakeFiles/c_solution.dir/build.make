@@ -92,49 +92,64 @@ CMakeFiles/c_solution.dir/arrays.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_solution.dir/arrays.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.c -o CMakeFiles/c_solution.dir/arrays.c.s
 
-CMakeFiles/c_solution.dir/polska.c.o: CMakeFiles/c_solution.dir/flags.make
-CMakeFiles/c_solution.dir/polska.c.o: ../polska.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/c_solution.dir/polska.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/c_solution.dir/polska.c.o -c /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.c
+CMakeFiles/c_solution.dir/polish.c.o: CMakeFiles/c_solution.dir/flags.make
+CMakeFiles/c_solution.dir/polish.c.o: ../polish.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/c_solution.dir/polish.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/c_solution.dir/polish.c.o -c /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.c
 
-CMakeFiles/c_solution.dir/polska.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_solution.dir/polska.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.c > CMakeFiles/c_solution.dir/polska.c.i
+CMakeFiles/c_solution.dir/polish.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_solution.dir/polish.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.c > CMakeFiles/c_solution.dir/polish.c.i
 
-CMakeFiles/c_solution.dir/polska.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_solution.dir/polska.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polska.c -o CMakeFiles/c_solution.dir/polska.c.s
+CMakeFiles/c_solution.dir/polish.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_solution.dir/polish.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.c -o CMakeFiles/c_solution.dir/polish.c.s
 
-CMakeFiles/c_solution.dir/is_smh.c.o: CMakeFiles/c_solution.dir/flags.make
-CMakeFiles/c_solution.dir/is_smh.c.o: ../is_smh.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/c_solution.dir/is_smh.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/c_solution.dir/is_smh.c.o -c /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.c
+CMakeFiles/c_solution.dir/is_smh_compare.c.o: CMakeFiles/c_solution.dir/flags.make
+CMakeFiles/c_solution.dir/is_smh_compare.c.o: ../is_smh_compare.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/c_solution.dir/is_smh_compare.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/c_solution.dir/is_smh_compare.c.o -c /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.c
 
-CMakeFiles/c_solution.dir/is_smh.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_solution.dir/is_smh.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.c > CMakeFiles/c_solution.dir/is_smh.c.i
+CMakeFiles/c_solution.dir/is_smh_compare.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_solution.dir/is_smh_compare.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.c > CMakeFiles/c_solution.dir/is_smh_compare.c.i
 
-CMakeFiles/c_solution.dir/is_smh.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_solution.dir/is_smh.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh.c -o CMakeFiles/c_solution.dir/is_smh.c.s
+CMakeFiles/c_solution.dir/is_smh_compare.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_solution.dir/is_smh_compare.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.c -o CMakeFiles/c_solution.dir/is_smh_compare.c.s
+
+CMakeFiles/c_solution.dir/actions.c.o: CMakeFiles/c_solution.dir/flags.make
+CMakeFiles/c_solution.dir/actions.c.o: ../actions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/c_solution.dir/actions.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/c_solution.dir/actions.c.o -c /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.c
+
+CMakeFiles/c_solution.dir/actions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/c_solution.dir/actions.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.c > CMakeFiles/c_solution.dir/actions.c.i
+
+CMakeFiles/c_solution.dir/actions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/c_solution.dir/actions.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.c -o CMakeFiles/c_solution.dir/actions.c.s
 
 # Object files for target c_solution
 c_solution_OBJECTS = \
 "CMakeFiles/c_solution.dir/main.c.o" \
 "CMakeFiles/c_solution.dir/arrays.c.o" \
-"CMakeFiles/c_solution.dir/polska.c.o" \
-"CMakeFiles/c_solution.dir/is_smh.c.o"
+"CMakeFiles/c_solution.dir/polish.c.o" \
+"CMakeFiles/c_solution.dir/is_smh_compare.c.o" \
+"CMakeFiles/c_solution.dir/actions.c.o"
 
 # External object files for target c_solution
 c_solution_EXTERNAL_OBJECTS =
 
 c_solution: CMakeFiles/c_solution.dir/main.c.o
 c_solution: CMakeFiles/c_solution.dir/arrays.c.o
-c_solution: CMakeFiles/c_solution.dir/polska.c.o
-c_solution: CMakeFiles/c_solution.dir/is_smh.c.o
+c_solution: CMakeFiles/c_solution.dir/polish.c.o
+c_solution: CMakeFiles/c_solution.dir/is_smh_compare.c.o
+c_solution: CMakeFiles/c_solution.dir/actions.c.o
 c_solution: CMakeFiles/c_solution.dir/build.make
 c_solution: CMakeFiles/c_solution.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable c_solution"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable c_solution"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/c_solution.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
