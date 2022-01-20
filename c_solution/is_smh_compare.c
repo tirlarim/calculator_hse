@@ -8,11 +8,12 @@ int is_dig(const char* s){
 }
 
 int is_u_min(const char* s, const char* previous_s,const int* i){
-    if (*s=='-' && (*previous_s=='(' || *i==0)) return 1;
+    if ((*s=='-' && (*previous_s=='(' || *i==0)) || *s=='u' && *previous_s=='-') return 1;
     return 0;
 }
 
 int is_num(const WORD* word){
+    if (word->st[0]=='u') return 0;
     for (int i=0;i<word->current;++i){
         if (!is_dig(&word->st[i])){
             return 0;
