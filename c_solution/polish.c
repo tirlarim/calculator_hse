@@ -52,17 +52,10 @@ void Calculations(){
 //    printf("\n%d\n%d",list.current,(int)sizeof(list));
 
 //too soon :)
-//    ARRAY new_stack;
-//    init_arr(&new_stack);
+    ARRAY new_stack;
+    init_arr(&new_stack);
 //    while (list.current!=0){
-//        if (is_num(&list.str[list.current-1])){
-//            push(&new_stack,&list.str[list.current-1]);
-//            --list.current;
-//        }
-//        if (is_function(&list.str[list.current-1]) || (list.str[list.current-1].st[0]=='u' && list.str[list.current-1].st[1]=='-'))
-//        {
-//
-//        }
+////        if (is_num(list.str))
 //    }
 
     fclose(stdin);
