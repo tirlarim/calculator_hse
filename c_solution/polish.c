@@ -48,7 +48,7 @@ void Calculations(){
         --stack.current;
     }
 
-//    arr_print(&list);
+    arr_print(&list);
 //    printf("\n%d\n%d",list.current,(int)sizeof(list));
 
 //too soon :)
