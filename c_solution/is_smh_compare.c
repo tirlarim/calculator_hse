@@ -32,7 +32,7 @@ int is_function(const WORD* word){
     if (strcmp(word->st,"cos")==0 || strcmp(word->st,"sin")==0 || strcmp(word->st,"tg")==0 ||strcmp(word->st,"log")==0
         ||strcmp(word->st,"ln")==0 ||strcmp(word->st,"sqrt")==0 ||strcmp(word->st,"pow")==0 ||strcmp(word->st,"abs")==0 ||
         strcmp(word->st,"exp")==0 ||strcmp(word->st,"real")==0 ||strcmp(word->st,"imag")==0 ||strcmp(word->st,"mag")==0 ||
-        strcmp(word->st,"phase")==0)
+        strcmp(word->st,"phase")==0 || (word->st[0]=='l' && word->st[1]=='o' && word->st[2]=='g') || (word->st[0]=='p' && word->st[1]=='o' && word->st[2]=='w'))
         return 1;
     return 0;
 }

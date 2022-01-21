@@ -49,9 +49,6 @@ void Calculations(){
         --stack.current;
     }
 
-//    arr_print(&list);
-//    printf("\n");
-
     DOUBLE_ARR new_stack;
     init_double_arr(&new_stack);
     int o=0;
@@ -59,17 +56,19 @@ void Calculations(){
     for (int i=0;i<list.current;++i){
         if (is_num(&list.str[i]) || is_const(&list.str[i])){
             is_num_or_const(&new_stack,&list.str[i]);
+            continue;
         }
         if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],&o)){
             is_func_or_un_min(&new_stack,&list.str[i]);
+            continue;
         }
         if (is_op_or_bracket(&list.str[i].st[0])){
             is_operation(&new_stack,&list.str[i]);
+            continue;
         }
     }
 
     arr_print_double(&new_stack);
-//    printf("\n%d",new_stack.current);
     fclose(stdin);
     fclose(stdout);
 }

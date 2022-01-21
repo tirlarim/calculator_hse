@@ -1,1 +1,1 @@
-(-sin(cos(-1+PI)))/(99*sqrt(e*tg(-6)))+76+abs(-9)
+(-sin(cos(-1+PI)))/(99.5*sqrt(e*tg(-6)))+76.457+log2(ln(9.4))

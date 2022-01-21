@@ -57,6 +57,20 @@ void is_func_or_un_min(DOUBLE_ARR* arr, WORD* word){
     if (strcmp(word->st,"exp")==0){
         arr->arr[arr->current-1]=exp(arr->arr[arr->current-1]);
     }
+    if (word->st[0]=='p' && word->st[1]=='o' && word->st[2]=='w'){
+        double n=0;
+        for (int i=3;i<word->current;++i){
+            n=n*10+(double)(word->st[i]-'0');
+        }
+        arr->arr[arr->current-1]=pow(n,arr->arr[arr->current-1]);
+    }
+    if (word->st[0]=='l' && word->st[1]=='o' && word->st[2]=='g'){
+        double n=0;
+        for (int i=3;i<word->current;++i){
+            n=n*10+(double)(word->st[i]-'0');
+        }
+        arr->arr[arr->current-1]=(log(arr->arr[arr->current-1]))/log(n);
+    }
 }
 
 void is_operation(DOUBLE_ARR* arr, WORD* word){
