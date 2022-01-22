@@ -5,6 +5,8 @@
 #include "calculations.h"
 #include <stdio.h>
 #include <string.h>
+#include "variables.h"
+#define expression_size 1000
 
 void Calculations(){
     freopen("../input.txt","r",stdin);
@@ -13,7 +15,7 @@ void Calculations(){
     ARRAY list,stack;
     init_arr(&list);
     init_arr(&stack);
-    char expression[1000];
+    char expression[expression_size];
     gets(expression);
     WORD buf;
     buf.current=0;
@@ -27,7 +29,9 @@ void Calculations(){
             flag=1;
         }
         else{
-                if (flag==1 && !is_function(&buf)) is_number_function_variable(&list,&buf); // __1__
+                if (flag==1 && !is_function(&buf)) {
+                    is_number_function_variable(&list,&buf); // __1__
+                }
                 if (flag==1 && is_function(&buf)) is_number_function_variable(&stack,&buf); // __2__
                 flag=0;
 
@@ -48,6 +52,30 @@ void Calculations(){
         push(&list,&stack.str[stack.current-1]);
         --stack.current;
     }
+    //-------------------- variables
+
+    VARIABLE_ARR variables;
+    init_variable_arr(&variables);
+    while (!feof(stdin)){
+        VARIABLE new;
+        new.str[0]=0;
+        scanf("%s = ",new.name);
+        if (strlen(new.name)==0) break;
+        gets(new.str);
+        new.checked=0;
+        if (strlen(new.str)!=0)
+            push_variable(&variables,&new);
+        new.str[0]=0;
+    }
+
+    for (int i=0;i<variables.current;++i){
+        if (!variables.arr[i].checked){
+            variables.arr[i].value=calculate_variables(&variables,&variables.arr[i]);
+        }
+    }
+
+    //--------------------
+//    print_variables(&variables);
 
     DOUBLE_ARR new_stack;
     init_double_arr(&new_stack);
@@ -66,9 +94,21 @@ void Calculations(){
             is_operation(&new_stack,&list.str[i]);
             continue;
         }
+        for (int j=0;j<variables.current;++j){
+            if (strcmp(variables.arr[j].name,list.str[i].st)==0){
+                if (new_stack.current==new_stack.max_size){
+                    resize_double(&new_stack);
+                }
+                new_stack.arr[new_stack.current++]=variables.arr[j].value;
+                break;
+            }
+//            printf("%s\n",variables.arr[j].name);
+        }
     }
-
+//    printf("-------\n");
     arr_print_double(&new_stack);
+//    printf("-------");
+
     fclose(stdin);
     fclose(stdout);
 }

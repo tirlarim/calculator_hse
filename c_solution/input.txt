@@ -1,1 +1,6 @@
-(-sin(cos(-1+PI)))/(99.5*sqrt(e*tg(-6)))+76.457+log2(ln(9.4))
+PI*alpha*len/v0
+alpha = s1+s2
+s1 = cos(len+s2)
+s2 = (sin(v0))^2
+len = 191.76
+v0 = 299.799

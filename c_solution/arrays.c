@@ -28,6 +28,7 @@ void arr_print(ARRAY* arr){
     for(int i=0;i<arr->current;++i){
         printf("%s ",arr->str[i].st);
     }
+    printf("\n");
 }
 
 
@@ -59,8 +60,13 @@ void arr_print_double(DOUBLE_ARR * arr){
     for (int i=0;i<arr->current;++i){
         if ((int)arr->arr[i]==arr->arr[i]) printf("%.0f ",arr->arr[i]);
         else {
+            if (arr->arr[i]==2.718){
+                printf("%.3f",arr->arr[i]);
+                continue;
+            }
             if (arr->arr[i]==3.14)printf("%.2f ",arr->arr[i]);
-            else printf("%f ",arr->arr[i]);
+            else printf("%.5f ",arr->arr[i]);
         }
     }
+    printf("\n");
 }
