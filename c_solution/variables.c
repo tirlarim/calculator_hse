@@ -30,7 +30,7 @@ void push_variable(VARIABLE_ARR* arr,VARIABLE* var){
 
 void print_variables(VARIABLE_ARR* arr){
     for (int i=0;i<arr->current;++i){
-        printf("%s = %f - %s\n",arr->arr[i].name,arr->arr[i].value,arr->arr[i].str);
+        printf("%s = %f\n",arr->arr[i].name,arr->arr[i].value);
     }
     printf("\n");
 }

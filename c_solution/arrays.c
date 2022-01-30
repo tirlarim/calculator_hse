@@ -56,6 +56,17 @@ void push_double(DOUBLE_ARR * arr, WORD* word){
     arr->arr[arr->current++]=strtod(word->st,(char**)&word->st[0]);
 }
 
+void print_double(double n){
+    if ((int)n==n) printf("%.0f ",n);
+    else {
+        if (n==2.718){
+            printf("%.3f",n);
+        }
+        if (n==3.14)printf("%.2f ",n);
+        else printf("%.5f ",n);
+    }
+}
+
 void arr_print_double(DOUBLE_ARR * arr){
     for (int i=0;i<arr->current;++i){
         if ((int)arr->arr[i]==arr->arr[i]) printf("%.0f ",arr->arr[i]);

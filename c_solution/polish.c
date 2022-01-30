@@ -8,7 +8,7 @@
 #include "variables.h"
 #define expression_size 1000
 
-void Calculations(){
+double Calculations(){
     freopen("../input.txt","r",stdin);
     freopen("../output.txt","w",stdout);
 
@@ -17,6 +17,10 @@ void Calculations(){
     init_arr(&stack);
     char expression[expression_size];
     gets(expression);
+    if (strlen(expression)==0){
+        printf("Enter the expression\n");
+        exit(0);
+    }
     WORD buf;
     buf.current=0;
     int flag=0;
@@ -75,7 +79,6 @@ void Calculations(){
     }
 
     //--------------------
-//    print_variables(&variables);
 
     DOUBLE_ARR new_stack;
     init_double_arr(&new_stack);
@@ -102,13 +105,9 @@ void Calculations(){
                 new_stack.arr[new_stack.current++]=variables.arr[j].value;
                 break;
             }
-//            printf("%s\n",variables.arr[j].name);
         }
     }
-//    printf("-------\n");
-    arr_print_double(&new_stack);
-//    printf("-------");
-
-    fclose(stdin);
-    fclose(stdout);
+    print_variables(&variables);
+    printf("%s = ",expression);
+    return new_stack.arr[0];
 }

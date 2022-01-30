@@ -2,6 +2,6 @@
 #define C_SOLUTION_POLISH_H
 #include "arrays.h"
 
-void Calculations();
+double Calculations();
 
 #endif

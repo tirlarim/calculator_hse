@@ -1,6 +1,6 @@
 #include "polish.h"
 
 int main(){
-    Calculations();
+    print_double(Calculations());
     return 0;
 }
