@@ -2,18 +2,31 @@
 #include <stdio.h>
 #include <gtk/gtk.h>
 
-static GtkWidget *entry;
+GtkWidget *entry;
+GtkWidget *result;
+GtkTextBuffer *text_buffer;
+GtkTextIter start;
+GtkTextIter end;
 
 void do_print(GtkWidget *calculate, gpointer data) {
 
-    char *buffer = (char *)gtk_entry_get_text(GTK_ENTRY(entry));
+    gtk_text_buffer_get_iter_at_offset(GTK_TEXT_BUFFER(text_buffer), &start, (gint) 0);
+    gtk_text_buffer_get_iter_at_offset(GTK_TEXT_BUFFER(text_buffer), &end, (gint) -1);
+
+    gchar *buffer1;
+    buffer1 = gtk_text_buffer_get_text(GTK_TEXT_BUFFER(text_buffer), &start, &end, TRUE);
+    char buffer2[100];
     FILE *input;
+    FILE *output;
     input = fopen("input.txt", "w");
-    fputs(buffer, input);
+    output = fopen("output.txt", "r");
+    fputs(buffer1, input);
+    fgets(buffer2, 100, output);
+    gtk_label_set_text(GTK_LABEL(result), buffer2);
     fclose(input);
+    fclose(output);
 }
 
-// gcc 007_gtk.c -o 007_gtk `pkg-config --cflags gtk+-3.0` `pkg-config --libs gtk+-3.0`
 int main(int argc, char **argv) {
     GtkWidget *window, *grid, *calculate;
     gtk_init(&argc, &argv);
@@ -28,13 +41,19 @@ int main(int argc, char **argv) {
     grid = gtk_grid_new();
     gtk_container_add(GTK_CONTAINER(window), grid);
 
-    entry = gtk_entry_new();
+    entry = gtk_text_view_new();
     gtk_grid_attach(GTK_GRID(grid), entry, 0, 0, 1, 1);
+
+    text_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(entry));
+    gtk_text_buffer_set_text(text_buffer, "", (gint) -1);
 
     calculate = gtk_button_new_with_label("=");
     g_signal_connect(calculate, "clicked", G_CALLBACK(do_print), NULL);
     gtk_grid_attach(GTK_GRID(grid), calculate, 2, 0, 1, 1);
 
+    result = gtk_label_new("result:");
+    gtk_grid_attach(GTK_GRID(grid), result, 3, 0, 1, 1);
+    
     gtk_widget_show_all(window);
     gtk_main();
 
