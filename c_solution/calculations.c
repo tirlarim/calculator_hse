@@ -32,45 +32,25 @@ void is_num_or_const(DOUBLE_ARR* arr, WORD* word){
     }
 }
 
-void is_func_or_un_min(DOUBLE_ARR* arr, WORD* word){
-    if (strcmp(word->st,"u-")==0){
-        arr->arr[arr->current-1]=-arr->arr[arr->current-1];
-    }
-    if (strcmp(word->st,"sin")==0){
-        arr->arr[arr->current-1]=sin(arr->arr[arr->current-1]);
-    }
-    if (strcmp(word->st,"cos")==0){
-        arr->arr[arr->current-1]=cos(arr->arr[arr->current-1]);
-    }
-    if (strcmp(word->st,"tg")==0){
-        arr->arr[arr->current-1]=tan(arr->arr[arr->current-1]);
-    }
-    if (strcmp(word->st,"ln")==0){
-        arr->arr[arr->current-1]=log(arr->arr[arr->current-1]);
-    }
-    if (strcmp(word->st,"sqrt")==0){
-        arr->arr[arr->current-1]=sqrt(arr->arr[arr->current-1]);
-    }
-    if (strcmp(word->st,"abs")==0){
-        arr->arr[arr->current-1]=fabs(arr->arr[arr->current-1]);
-    }
-    if (strcmp(word->st,"exp")==0){
-        arr->arr[arr->current-1]=exp(arr->arr[arr->current-1]);
-    }
-    if (word->st[0]=='p' && word->st[1]=='o' && word->st[2]=='w'){
-        double n=0;
-        for (int i=3;i<word->current;++i){
-            n=n*10+(double)(word->st[i]-'0');
+int choose (const char* str){
+    char* functions[]={"cos","sin","tg", "ln","sqrt","abs", "exp", "u-"
+//                       , "real","imag","mag","phase"
+    };
+    for (int i=0;i<13;++i){
+        if (strcmp(str,functions[i])==0){
+            return i;
         }
-        arr->arr[arr->current-1]=pow(n,arr->arr[arr->current-1]);
     }
-    if (word->st[0]=='l' && word->st[1]=='o' && word->st[2]=='g'){
-        double n=0;
-        for (int i=3;i<word->current;++i){
-            n=n*10+(double)(word->st[i]-'0');
-        }
-        arr->arr[arr->current-1]=(log(arr->arr[arr->current-1]))/log(n);
-    }
+    return -1;
+}
+
+double u(double a) {return -a;}
+
+void is_f(DOUBLE_ARR* arr, WORD* word){
+    double (*functions[])(double)={cos,sin,tan,log,sqrt,fabs,exp, u
+//                                   ,real,imag,mag,phase
+    };
+    arr->arr[arr->current-1]=functions[choose(word->st)](arr->arr[arr->current-1]);
 }
 
 void is_operation(DOUBLE_ARR* arr, WORD* word){

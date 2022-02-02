@@ -57,7 +57,10 @@ double calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             if (flag==1 && !is_function(&buf)) {
                 is_number_function_variable(&list,&buf); // __1__
             }
-            if (flag==1 && is_function(&buf)) is_number_function_variable(&stack,&buf); // __2__
+            if (flag==1 && is_function(&buf)) {
+//                printf("%d\n",choose(buf.st));
+                is_number_function_variable(&stack,&buf); // __2__
+            }
             flag=0;
 
             if (var->str[i]=='(') is_open_bracket(&stack); // __3__
@@ -87,7 +90,8 @@ double calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             continue;
         }
         if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],&o)){
-            is_func_or_un_min(&new_stack,&list.str[i]);
+//            is_func_or_un_min(&new_stack,&list.str[i]);
+            is_f(&new_stack,&list.str[i]);
             continue;
         }
         if (is_op_or_bracket(&list.str[i].st[0])){
