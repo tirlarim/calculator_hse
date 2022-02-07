@@ -44,7 +44,7 @@ COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
     buf.current=0;
     memset(buf.st,0,sizeof(buf.st));
     int flag=0;
-
+    int k_o=0,k_z=0;
     for (int i=0;i<=strlen(var->str);++i){
         if (var->str[i]==' ') continue;
 
@@ -63,8 +63,14 @@ COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             }
             flag=0;
 
-            if (var->str[i]=='(') is_open_bracket(&stack); // __3__
-            if (var->str[i]==')') is_close_bracket(&stack,&list); //__4__
+            if (var->str[i]=='(') {
+                ++k_o;
+                is_open_bracket(&stack); // __3__
+            }
+            if (var->str[i]==')') {
+                ++k_z;
+                is_close_bracket(&stack,&list); //__4__
+            }
             if (is_op_or_bracket(&var->str[i]) && var->str[i]!='(' && var->str[i]!=')'){ // __5__
                 if (is_u_min(&var->str[i],&var->str[i-1],i)){
                     is_un_minus(&stack);
@@ -75,6 +81,12 @@ COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             }
         }
     }
+
+    if (k_o!=k_z) {
+        printf("ERROR:\nCheck brackets in the variable %s\n",var->name);
+        exit(1);
+    }
+
     while (stack.current!=0){
         push(&list,&stack.str[stack.current-1]);
         --stack.current;
@@ -97,8 +109,10 @@ COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             is_operation(&new_stack,&list.str[i]);
             continue;
         }
+        int fl=0;
         for (int j=0;j<arr_var->current;++j){
             if (strcmp(arr_var->arr[j].name,list.str[i].st)==0){
+                fl=1;
                 if (!arr_var->arr[j].checked){
                     arr_var->arr[j].value=calculate_variables(arr_var,&arr_var->arr[j]);
                 }
@@ -108,10 +122,13 @@ COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
                 new_stack.arr[new_stack.current++]=arr_var->arr[j].value;
                 break;
             }
-//            printf("%s\n",variables.arr[j].name);
         }
-    }
+        if (fl==0) {
+            printf("ERROR:\nThere is no variable %s\n",list.str[i].st);
+            exit(1);
+        }
 
+    }
 //    arr_print_double(&new_stack);
     return new_stack.arr[0];
 }

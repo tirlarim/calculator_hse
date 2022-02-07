@@ -18,13 +18,15 @@ COMPLEX_NUM Calculations(){
     char expression[expression_size];
     gets(expression);
     if (strlen(expression)==0){
-        printf("Enter the expression\n");
+        printf("ERROR:\nEnter the expression\n");
         exit(0);
     }
+
     WORD buf;
     memset(buf.st,0,sizeof(buf.st));
     buf.current=0;
     int flag=0;
+    int k_o=0,k_z=0;
     for (int i=0;i<=strlen(expression);++i){
         if (expression[i]==' ') continue;
 
@@ -42,8 +44,14 @@ COMPLEX_NUM Calculations(){
                 }
                 flag=0;
 
-                if (expression[i]=='(') is_open_bracket(&stack); // __3__
-                if (expression[i]==')') is_close_bracket(&stack,&list); //__4__
+                if (expression[i]=='(') {
+                    ++k_o;
+                    is_open_bracket(&stack); // __3__
+                }
+                if (expression[i]==')') {
+                    ++k_z;
+                    is_close_bracket(&stack,&list); //__4__
+                }
                 if (is_op_or_bracket(&expression[i]) && expression[i]!='(' && expression[i]!=')'){ // __5__
                     if (is_u_min(&expression[i],&expression[i-1],i)){
                         is_un_minus(&stack);
@@ -54,7 +62,10 @@ COMPLEX_NUM Calculations(){
                 }
         }
     }
-
+    if (k_o!=k_z) {
+        printf("ERROR:\nCheck brackets in the expression\n");
+        exit(1);
+    }
 
     while (stack.current!=0){
         push(&list,&stack.str[stack.current-1]);
@@ -62,9 +73,9 @@ COMPLEX_NUM Calculations(){
     }
     //-------------------- variables
 
-    printf("--\n");
-    arr_print(&list);
-    printf("--\n");
+//    printf("--\n");
+//    arr_print(&list);
+//    printf("--\n");
 
     VARIABLE_ARR variables;
     init_variable_arr(&variables);
@@ -79,7 +90,7 @@ COMPLEX_NUM Calculations(){
             push_variable(&variables,&new);
         new.str[0]=0;
     }
-
+//    print_variables(&variables);
     for (int i=0;i<variables.current;++i){
         if (!variables.arr[i].checked){
             variables.arr[i].value=calculate_variables(&variables,&variables.arr[i]);
@@ -105,14 +116,20 @@ COMPLEX_NUM Calculations(){
             is_operation(&new_stack,&list.str[i]);
             continue;
         }
+        int fl=0;
         for (int j=0;j<variables.current;++j){
             if (strcmp(variables.arr[j].name,list.str[i].st)==0){
+                fl=1;
                 if (new_stack.current==new_stack.max_size){
                     resize_complex(&new_stack);
                 }
                 new_stack.arr[new_stack.current++]=variables.arr[j].value;
                 break;
             }
+        }
+        if (fl==0){
+            printf("ERROR:\nThere is no variable %s\n",list.str[i].st);
+            exit(1);
         }
 //        arr_print_double(&new_stack);
     }

@@ -1,4 +1,4 @@
-1+PI*alpha*len/v0
+1+exp(PI*alpha*len/v0)+v0
 alpha = s1+s2
 s1 = cos(len+s2)
 s2 = (sin(v0))
