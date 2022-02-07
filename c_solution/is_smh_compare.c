@@ -7,8 +7,8 @@ int is_dig(const char* s){
     return 0;
 }
 
-int is_u_min(const char* s, const char* previous_s,const int* i){
-    if ((*s=='-' && (*previous_s=='(' || *i==0)) || *s=='u' && *previous_s=='-') return 1;
+int is_u_min(const char* s, const char* previous_s,int i){
+    if ((*s=='-' && (*previous_s=='(' || i==0)) || *s=='u' && *previous_s=='-') return 1;
     return 0;
 }
 

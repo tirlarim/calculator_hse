@@ -34,13 +34,13 @@ void arr_print(ARRAY* arr){
 
 
 
-void init_double_arr(DOUBLE_ARR* arr){
+void init_complex_arr(COMPLEX_ARR * arr){
     arr->current=arr->max_size=0;
     arr->arr=NULL;
 }
 
-void resize_double(DOUBLE_ARR* arr){
-    double* new=(double*)calloc(arr->max_size*2+1,sizeof(double));
+void resize_complex(COMPLEX_ARR* arr){
+    COMPLEX_NUM* new=(COMPLEX_NUM *)calloc(arr->max_size*2+1,sizeof(COMPLEX_NUM));
     for (int i=0;i<arr->current;++i){
         new[i]=arr->arr[i];
     }
@@ -49,35 +49,38 @@ void resize_double(DOUBLE_ARR* arr){
     arr->max_size=arr->max_size*2+1;
 }
 
-void push_double(DOUBLE_ARR * arr, WORD* word){
+void push_complex(COMPLEX_ARR* arr, WORD* word){
     if (arr->current==arr->max_size){
-        resize_double(arr);
+        resize_complex(arr);
     }
-    arr->arr[arr->current++]=strtod(word->st,(char**)&word->st[0]);
+//    arr->arr[arr->current].real_value=arr->arr[arr->current++].imag_value=0;
+    arr->arr[arr->current++].real_value=strtod(word->st,(char**)&word->st[0]);
 }
 
-void print_double(double n){
-    if ((int)n==n) printf("%.0f ",n);
-    else {
-        if (n==2.718){
-            printf("%.3f",n);
-        }
-        if (n==3.14)printf("%.2f ",n);
-        else printf("%.5f ",n);
-    }
+void print_complex(COMPLEX_NUM n){
+//    if ((int)n==n) printf("%.0f ",n);
+//    else {
+//        if (n==2.718){
+//            printf("%.3f",n);
+//        }
+//        if (n==3.14)printf("%.2f ",n);
+//        else printf("%.5f ",n);
+//    }
+    printf("%f %f\n",n.real_value,n.imag_value);
 }
 
-void arr_print_double(DOUBLE_ARR * arr){
+void arr_print_complex(COMPLEX_ARR * arr){
     for (int i=0;i<arr->current;++i){
-        if ((int)arr->arr[i]==arr->arr[i]) printf("%.0f ",arr->arr[i]);
-        else {
-            if (arr->arr[i]==2.718){
-                printf("%.3f",arr->arr[i]);
-                continue;
-            }
-            if (arr->arr[i]==3.14)printf("%.2f ",arr->arr[i]);
-            else printf("%.5f ",arr->arr[i]);
-        }
+//        if ((int)arr->arr[i]==arr->arr[i]) printf("%.0f ",arr->arr[i]);
+//        else {
+//            if (arr->arr[i]==2.718){
+//                printf("%.3f",arr->arr[i]);
+//                continue;
+//            }
+//            if (arr->arr[i]==3.14)printf("%.2f ",arr->arr[i]);
+//            else printf("%.5f ",arr->arr[i]);
+//        }
+        print_complex(arr->arr[i]);
     }
-    printf("\n");
+//    printf("\n");
 }

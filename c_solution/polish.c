@@ -8,7 +8,7 @@
 #include "variables.h"
 #define expression_size 1000
 
-double Calculations(){
+COMPLEX_NUM Calculations(){
     freopen("../input.txt","r",stdin);
     freopen("../output.txt","w",stdout);
 
@@ -22,9 +22,9 @@ double Calculations(){
         exit(0);
     }
     WORD buf;
+    memset(buf.st,0,sizeof(buf.st));
     buf.current=0;
     int flag=0;
-
     for (int i=0;i<=strlen(expression);++i){
         if (expression[i]==' ') continue;
 
@@ -45,7 +45,7 @@ double Calculations(){
                 if (expression[i]=='(') is_open_bracket(&stack); // __3__
                 if (expression[i]==')') is_close_bracket(&stack,&list); //__4__
                 if (is_op_or_bracket(&expression[i]) && expression[i]!='(' && expression[i]!=')'){ // __5__
-                    if (is_u_min(&expression[i],&expression[i-1],&i)){
+                    if (is_u_min(&expression[i],&expression[i-1],i)){
                         is_un_minus(&stack);
                     }
                     else{
@@ -55,11 +55,16 @@ double Calculations(){
         }
     }
 
+
     while (stack.current!=0){
         push(&list,&stack.str[stack.current-1]);
         --stack.current;
     }
     //-------------------- variables
+
+    printf("--\n");
+    arr_print(&list);
+    printf("--\n");
 
     VARIABLE_ARR variables;
     init_variable_arr(&variables);
@@ -83,16 +88,15 @@ double Calculations(){
 
     //--------------------
 
-    DOUBLE_ARR new_stack;
-    init_double_arr(&new_stack);
-    int o=0;
+    COMPLEX_ARR new_stack;
+    init_complex_arr(&new_stack);
 
     for (int i=0;i<list.current;++i){
         if (is_num(&list.str[i]) || is_const(&list.str[i])){
             is_num_or_const(&new_stack,&list.str[i]);
             continue;
         }
-        if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],&o)){
+        if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],i)){
             is_f(&new_stack,&list.str[i]);
 //            is_func_or_un_min(&new_stack,&list.str[i]);
             continue;
@@ -104,12 +108,13 @@ double Calculations(){
         for (int j=0;j<variables.current;++j){
             if (strcmp(variables.arr[j].name,list.str[i].st)==0){
                 if (new_stack.current==new_stack.max_size){
-                    resize_double(&new_stack);
+                    resize_complex(&new_stack);
                 }
                 new_stack.arr[new_stack.current++]=variables.arr[j].value;
                 break;
             }
         }
+//        arr_print_double(&new_stack);
     }
     print_variables(&variables);
     printf("%s = ",expression);

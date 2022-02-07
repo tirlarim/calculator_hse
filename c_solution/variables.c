@@ -30,12 +30,12 @@ void push_variable(VARIABLE_ARR* arr,VARIABLE* var){
 
 void print_variables(VARIABLE_ARR* arr){
     for (int i=0;i<arr->current;++i){
-        printf("%s = %f\n",arr->arr[i].name,arr->arr[i].value);
+        printf("%s = %f\n",arr->arr[i].name,arr->arr[i].value.real_value);
     }
     printf("\n");
 }
 
-double calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
+COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
     var->checked=1;
     ARRAY list,stack;
     init_arr(&list);
@@ -66,7 +66,7 @@ double calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             if (var->str[i]=='(') is_open_bracket(&stack); // __3__
             if (var->str[i]==')') is_close_bracket(&stack,&list); //__4__
             if (is_op_or_bracket(&var->str[i]) && var->str[i]!='(' && var->str[i]!=')'){ // __5__
-                if (is_u_min(&var->str[i],&var->str[i-1],&i)){
+                if (is_u_min(&var->str[i],&var->str[i-1],i)){
                     is_un_minus(&stack);
                 }
                 else{
@@ -80,16 +80,15 @@ double calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
         --stack.current;
     }
 //    arr_print(&list);
-    DOUBLE_ARR new_stack;
-    init_double_arr(&new_stack);
-    int o=0;
+    COMPLEX_ARR new_stack;
+    init_complex_arr(&new_stack);
 
     for (int i=0;i<list.current;++i){
         if (is_num(&list.str[i]) || is_const(&list.str[i])){
             is_num_or_const(&new_stack,&list.str[i]);
             continue;
         }
-        if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],&o)){
+        if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],i)){
 //            is_func_or_un_min(&new_stack,&list.str[i]);
             is_f(&new_stack,&list.str[i]);
             continue;
@@ -104,7 +103,7 @@ double calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
                     arr_var->arr[j].value=calculate_variables(arr_var,&arr_var->arr[j]);
                 }
                 if (new_stack.current==new_stack.max_size){
-                    resize_double(&new_stack);
+                    resize_complex(&new_stack);
                 }
                 new_stack.arr[new_stack.current++]=arr_var->arr[j].value;
                 break;

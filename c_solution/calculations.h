@@ -4,10 +4,10 @@
 #include "variables.h"
 
 
-void is_num_or_const(DOUBLE_ARR* arr, WORD* word);
-void is_operation(DOUBLE_ARR* arr, WORD* word);
+void is_num_or_const(COMPLEX_ARR * arr, WORD* word);
+void is_operation(COMPLEX_ARR * arr, WORD* word);
 int choose (const char* str);
-void is_f(DOUBLE_ARR* arr, WORD* word);
+void is_f(COMPLEX_ARR * arr, WORD* word);
 
 
 #endif
