@@ -1,61 +1,110 @@
-#include <stdlib.h>
-#include <stdio.h>
+//gcc -Wno-format -o gui gui.c -Wno-deprecated-declarations -Wno-format-security -lm `pkg-config --cflags --libs gtk+-3.0` -rdynamic
 #include <gtk/gtk.h>
+#include <stdio.h>
 
-GtkWidget *entry;
-GtkWidget *result;
-GtkTextBuffer *text_buffer;
-GtkTextIter start;
-GtkTextIter end;
+GtkWidget *window;
+GtkWidget *textview;
+GtkWidget *label;
+GtkTextBuffer *textbuffer;
 
-void do_print(GtkWidget *calculate, gpointer data) {
+GtkBuilder *builder;
 
-    gtk_text_buffer_get_iter_at_offset(GTK_TEXT_BUFFER(text_buffer), &start, (gint) 0);
-    gtk_text_buffer_get_iter_at_offset(GTK_TEXT_BUFFER(text_buffer), &end, (gint) -1);
-
-    gchar *buffer1;
-    buffer1 = gtk_text_buffer_get_text(GTK_TEXT_BUFFER(text_buffer), &start, &end, TRUE);
-    char buffer2[100];
-    FILE *input;
-    FILE *output;
-    input = fopen("input.txt", "w");
-    output = fopen("output.txt", "r");
-    fputs(buffer1, input);
-    fgets(buffer2, 100, output);
-    gtk_label_set_text(GTK_LABEL(result), buffer2);
-    fclose(input);
-    fclose(output);
-}
-
-int main(int argc, char **argv) {
-    GtkWidget *window, *grid, *calculate;
+int main(int argc, char *argv[]) {
     gtk_init(&argc, &argv);
 
-    window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    builder = gtk_builder_new_from_file ("gui.glade");
+    gtk_builder_connect_signals(builder, NULL);
+
+    window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
     g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
-    gtk_window_set_title(GTK_WINDOW(window), "SHIT");
-    gtk_window_set_default_size(GTK_WINDOW (window), 400, 500);
-    gtk_container_set_border_width (GTK_CONTAINER (window), 10);
-    gtk_window_set_resizable(GTK_WINDOW(window), FALSE);
 
-    grid = gtk_grid_new();
-    gtk_container_add(GTK_CONTAINER(window), grid);
-
-    entry = gtk_text_view_new();
-    gtk_grid_attach(GTK_GRID(grid), entry, 0, 0, 1, 1);
-
-    text_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(entry));
-    gtk_text_buffer_set_text(text_buffer, "", (gint) -1);
-
-    calculate = gtk_button_new_with_label("=");
-    g_signal_connect(calculate, "clicked", G_CALLBACK(do_print), NULL);
-    gtk_grid_attach(GTK_GRID(grid), calculate, 2, 0, 1, 1);
-
-    result = gtk_label_new("result:");
-    gtk_grid_attach(GTK_GRID(grid), result, 3, 0, 1, 1);
+    textview = GTK_WIDGET(gtk_builder_get_object(builder, "textview"));
+    label = GTK_WIDGET(gtk_builder_get_object(builder, "label"));
+    textbuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW(textview));
     
-    gtk_widget_show_all(window);
+    gtk_widget_show(window);
+
     gtk_main();
 
-    return 0;
+    return EXIT_SUCCESS;
+}
+
+void on_simple_button_clicked(GtkButton *b) {
+    // GtkTextIter end;
+    const gchar *text;
+
+	// gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
+
+    text = gtk_button_get_label(b);
+
+    gtk_text_buffer_insert_at_cursor(textbuffer, text, (gint) -1);
+}
+
+void on_button_calculate_clicked(GtkButton *b){
+    //putting text in input
+    GtkTextIter begin, end;
+    const gchar *text_input;
+
+    gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &begin, (gint) 0);
+	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
+
+    text_input = gtk_text_buffer_get_text(GTK_TEXT_BUFFER(textbuffer), &begin, &end, FALSE);
+    char tmp_input[100];
+    
+    sprintf(tmp_input, "%s", text_input);
+
+    FILE *input;
+    input = fopen("input.txt", "w");
+    fputs(tmp_input, input);
+    fclose(input);
+
+    //getting and showing answer
+    const gchar *text_output;
+    char tmp_output[100];
+
+    FILE *output;
+    output = fopen("output.txt", "r");
+    text_output = fgets(tmp_output, 100, output);
+    fclose(output);
+
+    text_output = tmp_output;
+
+    gtk_label_set_text(GTK_LABEL(label), text_output);
+}
+
+void on_button_clear_clicked(GtkButton *b) {
+    gtk_label_set_text(GTK_LABEL(label), (const gchar*) "");
+
+    GtkTextIter begin, end;
+    gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &begin, (gint) 0);
+	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
+    
+    gtk_text_buffer_delete(GTK_TEXT_BUFFER(textbuffer), &begin, &end);
+}
+
+void on_button_delete_clicked(GtkButton *b) {
+    GtkTextIter end;
+    GtkTextMark cursor;
+
+    cursor = *gtk_text_buffer_get_insert(GTK_TEXT_BUFFER(textbuffer));
+    gtk_text_buffer_get_iter_at_mark(GTK_TEXT_BUFFER(textbuffer), &end, &cursor);
+
+	// gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
+
+    gtk_text_buffer_backspace(GTK_TEXT_BUFFER(textbuffer), &end, TRUE, TRUE);
+}
+
+void on_button_clear_answer_clicked(GtkButton *b) {
+    gtk_label_set_text(GTK_LABEL(label), (const gchar*) "");
+}
+
+void on_button_TAB_clicked(GtkButton *b) {
+    GtkTextIter end;
+    const gchar *text;
+
+	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
+
+    text = "\n";
+
+    gtk_text_buffer_insert(textbuffer, &end, text, (gint) -1);
 }
