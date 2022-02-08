@@ -30,10 +30,7 @@ int main(int argc, char *argv[]) {
 }
 
 void on_simple_button_clicked(GtkButton *b) {
-    // GtkTextIter end;
     const gchar *text;
-
-	// gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
 
     text = gtk_button_get_label(b);
 
@@ -89,8 +86,6 @@ void on_button_delete_clicked(GtkButton *b) {
     cursor = *gtk_text_buffer_get_insert(GTK_TEXT_BUFFER(textbuffer));
     gtk_text_buffer_get_iter_at_mark(GTK_TEXT_BUFFER(textbuffer), &end, &cursor);
 
-	// gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
-
     gtk_text_buffer_backspace(GTK_TEXT_BUFFER(textbuffer), &end, TRUE, TRUE);
 }
 
@@ -100,10 +95,12 @@ void on_button_clear_answer_clicked(GtkButton *b) {
 
 void on_button_TAB_clicked(GtkButton *b) {
     GtkTextIter end;
+    GtkTextMark cursor;
+
+    cursor = *gtk_text_buffer_get_insert(GTK_TEXT_BUFFER(textbuffer));
+    gtk_text_buffer_get_iter_at_mark(GTK_TEXT_BUFFER(textbuffer), &end, &cursor);
+
     const gchar *text;
-
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
-
     text = "\n";
 
     gtk_text_buffer_insert(textbuffer, &end, text, (gint) -1);
