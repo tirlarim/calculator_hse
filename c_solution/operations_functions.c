@@ -8,7 +8,9 @@ comp cabsd(comp a){return cabs(a);}
 comp creald(comp a){return creal(a);}
 comp cimagd(comp a){return cimag(a);}
 comp clog10(comp a){return clog(a)/clog(10);}
+comp empty(comp a){return a;}
 
+comp full_log(comp a, comp b){return clog(b)/clog(a);}
 comp plus(comp a, comp b){return a+b;}
 comp minus(comp a, comp b){return a-b;}
 comp multiplication(comp a, comp b){return a*b;}

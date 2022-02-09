@@ -50,7 +50,7 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
     for (int i=0;i<=strlen(var->str);++i){
         if (var->str[i]==' ') continue;
 
-        if (!is_op_or_bracket(&var->str[i]) && i!=strlen(var->str)){
+        if (!is_op_or_bracket_or_comma(&var->str[i]) && i != strlen(var->str)){
             buf.st[buf.current++]=var->str[i];
             flag=1;
         }
@@ -71,7 +71,7 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
                 ++k_z;
                 is_close_bracket(&stack,&list);
             }
-            if (is_op_or_bracket(&var->str[i]) && var->str[i]!='(' && var->str[i]!=')'){
+            if (is_op_or_bracket_or_comma(&var->str[i]) && var->str[i] != '(' && var->str[i] != ')'){
                 if (is_u_min(&var->str[i],&var->str[i-1],i)){
                     is_un_minus(&stack);
                 }
@@ -103,7 +103,7 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             is_f(&new_stack,&list.str[i]);
             continue;
         }
-        if (is_op_or_bracket(&list.str[i].st[0])){
+        if (is_op_or_bracket_or_comma(&list.str[i].st[0])){
             is_operation(&new_stack,&list.str[i]);
             continue;
         }

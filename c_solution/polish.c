@@ -3,9 +3,10 @@
 #include "polish.h"
 #include "is_smh_compare.h"
 #include "calculations.h"
+#include "variables.h"
 #include <stdio.h>
 #include <string.h>
-#include "variables.h"
+#include <stdlib.h>
 #define expression_size 1000
 
 void Calculations(){
@@ -30,7 +31,7 @@ void Calculations(){
     for (int i=0;i<=strlen(expression);++i){
         if (expression[i]==' ') continue;
 
-        if (!is_op_or_bracket(&expression[i]) && i!=strlen(expression)){
+        if (!is_op_or_bracket_or_comma(&expression[i]) && i != strlen(expression)){
             buf.st[buf.current++]=expression[i];
             flag=1;
         }
@@ -50,12 +51,12 @@ void Calculations(){
                     ++k_z;
                     is_close_bracket(&stack,&list);
                 }
-                if (is_op_or_bracket(&expression[i]) && expression[i]!='(' && expression[i]!=')'){
+                if (is_op_or_bracket_or_comma(&expression[i]) && expression[i] != '(' && expression[i] != ')'){
                     if (is_u_min(&expression[i],&expression[i-1],i)){
                         is_un_minus(&stack);
                     }
                     else{
-                        is_operator(&stack,&list,&expression[i]);
+                            is_operator(&stack,&list,&expression[i]);
                     }
                 }
         }
@@ -70,11 +71,11 @@ void Calculations(){
         --stack.current;
     }
 
-
     if (stack.current==0 && list.current==0){
         printf("ERROR:\nEnter the expression\n");
         exit(0);
     }
+
     VARIABLE_ARR variables;
     init_variable_arr(&variables);
     while (!feof(stdin)){
@@ -94,7 +95,6 @@ void Calculations(){
         }
     }
 
-
     COMPLEX_ARR new_stack;
     init_complex_arr(&new_stack);
 
@@ -107,7 +107,7 @@ void Calculations(){
             is_f(&new_stack,&list.str[i]);
             continue;
         }
-        if (is_op_or_bracket(&list.str[i].st[0])){
+        if (is_op_or_bracket_or_comma(&list.str[i].st[0])){
             is_operation(&new_stack,&list.str[i]);
             continue;
         }

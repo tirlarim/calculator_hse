@@ -1,11 +1,16 @@
 CMakeFiles/c_solution.dir/variables.c.o: \
   /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/variables.c \
   /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/variables.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/stdio.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_stdio.h \
+  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/complex.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/cdefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_symbol_aliasing.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_posix_availability.h \
+  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.h \
+  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.h \
+  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/calculations.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/AvailabilityVersions.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/AvailabilityInternal.h \
@@ -75,11 +80,6 @@ CMakeFiles/c_solution.dir/variables.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/malloc/_malloc.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_dev_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_mode_t.h \
-  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/arrays.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/complex.h \
-  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/actions.h \
-  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.h \
-  /Users/ilavolodin/CLionProjects/calculator_hse/c_solution/calculations.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_rsize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_errno_t.h \

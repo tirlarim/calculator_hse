@@ -67,6 +67,10 @@ void push_complex(COMPLEX_ARR* arr, WORD* word){
 
 void print_complex(comp n){
     double x=creal(n), y=cimag(n);
+    if (x==0 && y==0){
+        printf("0");
+        return;
+    }
     if (x!=0){
         printf("%g",x);
         if (y!=0){
