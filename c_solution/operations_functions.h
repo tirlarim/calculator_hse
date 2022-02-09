@@ -1,7 +1,3 @@
-//
-// Created by Илья Володин on 09.02.2022.
-//
-
 #ifndef MAIN_C_OPERATIONS_FUNCTIONS_H
 #define MAIN_C_OPERATIONS_FUNCTIONS_H
 #include <complex.h>
@@ -23,4 +19,4 @@ comp exponentiation(comp a, comp b);
 
 
 
-#endif //MAIN_C_OPERATIONS_FUNCTIONS_H
+#endif

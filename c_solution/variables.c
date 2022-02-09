@@ -1,9 +1,10 @@
 #include "variables.h"
-#include <stdio.h>
 #include "arrays.h"
 #include "actions.h"
 #include "is_smh_compare.h"
 #include "calculations.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 void init_variable_arr(VARIABLE_ARR* var){
@@ -30,9 +31,10 @@ void push_variable(VARIABLE_ARR* arr,VARIABLE* var){
 
 void print_variables(VARIABLE_ARR* arr){
     for (int i=0;i<arr->current;++i){
-        printf("%s = %f %f\n",arr->arr[i].name,creal(arr->arr[i].value),cimag(arr->arr[i].value));
+        printf("%s = ",arr->arr[i].name);
+        print_complex(arr->arr[i].value);
+        printf("\n");
     }
-    printf("\n");
 }
 
 comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
@@ -51,27 +53,25 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
         if (!is_op_or_bracket(&var->str[i]) && i!=strlen(var->str)){
             buf.st[buf.current++]=var->str[i];
             flag=1;
-//            printf("%s\n",buf.st);
         }
         else{
             if (flag==1 && !is_function(&buf)) {
-                is_number_function_variable(&list,&buf); // __1__
+                is_number_function_variable(&list,&buf);
             }
             if (flag==1 && is_function(&buf)) {
-//                printf("%d\n",choose(buf.st));
-                is_number_function_variable(&stack,&buf); // __2__
+                is_number_function_variable(&stack,&buf);
             }
             flag=0;
 
             if (var->str[i]=='(') {
                 ++k_o;
-                is_open_bracket(&stack); // __3__
+                is_open_bracket(&stack);
             }
             if (var->str[i]==')') {
                 ++k_z;
-                is_close_bracket(&stack,&list); //__4__
+                is_close_bracket(&stack,&list);
             }
-            if (is_op_or_bracket(&var->str[i]) && var->str[i]!='(' && var->str[i]!=')'){ // __5__
+            if (is_op_or_bracket(&var->str[i]) && var->str[i]!='(' && var->str[i]!=')'){
                 if (is_u_min(&var->str[i],&var->str[i-1],i)){
                     is_un_minus(&stack);
                 }
@@ -91,7 +91,6 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
         push(&list,&stack.str[stack.current-1]);
         --stack.current;
     }
-//    arr_print(&list);
     COMPLEX_ARR new_stack;
     init_complex_arr(&new_stack);
 
@@ -101,7 +100,6 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             continue;
         }
         if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],i)){
-//            is_func_or_un_min(&new_stack,&list.str[i]);
             is_f(&new_stack,&list.str[i]);
             continue;
         }
@@ -129,6 +127,5 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
         }
 
     }
-//    arr_print_double(&new_stack);
     return new_stack.arr[0];
 }

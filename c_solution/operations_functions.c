@@ -1,7 +1,3 @@
-//
-// Created by Илья Володин on 09.02.2022.
-//
-
 #include "operations_functions.h"
 #include <tgmath.h>
 

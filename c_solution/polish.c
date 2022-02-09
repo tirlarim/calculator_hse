@@ -8,9 +8,10 @@
 #include "variables.h"
 #define expression_size 1000
 
-comp Calculations(){
+void Calculations(){
     freopen("../input.txt","r",stdin);
     freopen("../output.txt","w",stdout);
+
 
     ARRAY list,stack;
     init_arr(&list);
@@ -35,21 +36,21 @@ comp Calculations(){
         }
         else{
                 if (flag==1 && !is_function(&buf)) {
-                    is_number_function_variable(&list,&buf); // __1__
+                    is_number_function_variable(&list,&buf);
                 }
                 if (flag==1 && is_function(&buf)) {
-                    is_number_function_variable(&stack,&buf); // __2__
+                    is_number_function_variable(&stack,&buf);
                 }
                 flag=0;
                 if (expression[i]=='(') {
                     ++k_o;
-                    is_open_bracket(&stack); // __3__
+                    is_open_bracket(&stack);
                 }
                 if (expression[i]==')') {
                     ++k_z;
-                    is_close_bracket(&stack,&list); //__4__
+                    is_close_bracket(&stack,&list);
                 }
-                if (is_op_or_bracket(&expression[i]) && expression[i]!='(' && expression[i]!=')'){ // __5__
+                if (is_op_or_bracket(&expression[i]) && expression[i]!='(' && expression[i]!=')'){
                     if (is_u_min(&expression[i],&expression[i-1],i)){
                         is_un_minus(&stack);
                     }
@@ -68,11 +69,8 @@ comp Calculations(){
         push(&list,&stack.str[stack.current-1]);
         --stack.current;
     }
-    //-------------------- variables
-//
-//    printf("--\n");
-//    arr_print(&list);
-//    printf("--\n");
+
+
     if (stack.current==0 && list.current==0){
         printf("ERROR:\nEnter the expression\n");
         exit(0);
@@ -90,14 +88,12 @@ comp Calculations(){
             push_variable(&variables,&new);
         new.str[0]=0;
     }
-//    print_variables(&variables);
     for (int i=0;i<variables.current;++i){
         if (!variables.arr[i].checked){
             variables.arr[i].value=calculate_variables(&variables,&variables.arr[i]);
         }
     }
 
-    //--------------------
 
     COMPLEX_ARR new_stack;
     init_complex_arr(&new_stack);
@@ -109,16 +105,12 @@ comp Calculations(){
         }
         if (is_function(&list.str[i]) || is_u_min(&list.str[i].st[0],&list.str[i].st[1],i)){
             is_f(&new_stack,&list.str[i]);
-//            is_func_or_un_min(&new_stack,&list.str[i]);
             continue;
         }
         if (is_op_or_bracket(&list.str[i].st[0])){
             is_operation(&new_stack,&list.str[i]);
             continue;
         }
-//        if (strcmp(list.str[i].st,"j")==0){
-//            printf("1");
-//        }
         int fl=0;
         for (int j=0;j<variables.current;++j){
             if (strcmp(variables.arr[j].name,list.str[i].st)==0){
@@ -134,9 +126,16 @@ comp Calculations(){
             printf("ERROR:\nThere is no variable %s\n",list.str[i].st);
             exit(1);
         }
-//        arr_print_double(&new_stack);
     }
-    print_variables(&variables);
-    printf("%s = ",expression);
-    return new_stack.arr[0];
+
+    printf("RESULT:\n");
+    print_complex(new_stack.arr[0]);
+    printf("\n\nEXPRESSION: \n%s\n",expression);
+    if (variables.current){
+        printf("\nVARIABLES:\n");
+        print_variables(&variables);
+    }
+
+    fclose(stdin);
+    fclose(stdout);
 }

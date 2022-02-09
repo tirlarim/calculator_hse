@@ -1,6 +1,5 @@
 #include "actions.h"
 #include <string.h>
-#include "is_smh_compare.h"
 
 void is_number_function_variable(ARRAY* arr,WORD* buf){
     push(arr,buf);

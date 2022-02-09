@@ -1,6 +1,5 @@
 #ifndef C_SOLUTION_VARIABLES_H
 #define C_SOLUTION_VARIABLES_H
-#include <stdlib.h>
 #include "arrays.h"
 
 typedef struct{
@@ -17,7 +16,6 @@ typedef struct{
 }VARIABLE_ARR;
 
 void init_variable_arr(VARIABLE_ARR* var);
-void resize_var_arr(VARIABLE_ARR* var);
 void push_variable(VARIABLE_ARR* arr,VARIABLE* var);
 void print_variables(VARIABLE_ARR* arr);
 comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var);

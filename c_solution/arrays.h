@@ -14,11 +14,6 @@ typedef struct{
     int current;
 }ARRAY;
 
-//typedef struct{
-//    double real_value;
-//    double imag_value;
-//}COMPLEX_NUM;
-
 typedef struct{
     comp* arr;
     int max_size;
@@ -27,12 +22,9 @@ typedef struct{
 
 void resize_complex(COMPLEX_ARR* arr);
 void push_complex(COMPLEX_ARR * arr, WORD* word);
-void arr_print_complex(COMPLEX_ARR * arr);
 void init_complex_arr(COMPLEX_ARR* arr);
 void init_arr(ARRAY* arr);
-void resize(ARRAY* arr);
 void push(ARRAY* arr,WORD* word);
-void arr_print(ARRAY* arr);
 void print_complex(comp n);
 
 #endif

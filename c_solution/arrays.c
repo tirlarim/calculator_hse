@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 void init_arr(ARRAY* arr){
     arr->current=arr->max_size=0;
@@ -25,15 +26,6 @@ void push(ARRAY* arr, WORD* word){
     arr->str[arr->current++]=*word;
 }
 
-void arr_print(ARRAY* arr){
-    for(int i=0;i<arr->current;++i){
-        printf("%s ",arr->str[i].st);
-    }
-    printf("\n");
-}
-
-
-
 
 void init_complex_arr(COMPLEX_ARR * arr){
     arr->current=arr->max_size=0;
@@ -54,39 +46,35 @@ void push_complex(COMPLEX_ARR* arr, WORD* word){
     if (arr->current==arr->max_size){
         resize_complex(arr);
     }
-//    printf("%s\n",word->st);
-//    printf("%f",strtod(word->st,(char**)&word->st[0]));
-//    arr->arr[arr->current].real_value=arr->arr[arr->current++].imag_value=0;
+    if (strcmp(word->st,"pi")==0){
+        arr->arr[arr->current++]=M_PI;
+        return;
+    }
+    if (strcmp(word->st,"PI")==0){
+        arr->arr[arr->current++]=M_PI;
+        return;
+    }
+    if (strcmp(word->st,"e")==0){
+        arr->arr[arr->current++]=M_E;
+        return;
+    }
     if (strcmp(word->st,"j")==0){
         arr->arr[arr->current++]=I;
+        return;
     }
-    else arr->arr[arr->current++]=strtod(word->st,(char**)&word->st[0]);
+    arr->arr[arr->current++]=strtod(word->st,(char**)&word->st[0]);
 }
 
 void print_complex(comp n){
-//    if ((int)n==n) printf("%.0f ",n);
-//    else {
-//        if (n==2.718){
-//            printf("%.3f",n);
-//        }
-//        if (n==3.14)printf("%.2f ",n);
-//        else printf("%.5f ",n);
-//    }
-    printf("%f %f\n",creal(n),cimag(n));
-}
-
-void arr_print_complex(COMPLEX_ARR * arr){
-    for (int i=0;i<arr->current;++i){
-//        if ((int)arr->arr[i]==arr->arr[i]) printf("%.0f ",arr->arr[i]);
-//        else {
-//            if (arr->arr[i]==2.718){
-//                printf("%.3f",arr->arr[i]);
-//                continue;
-//            }
-//            if (arr->arr[i]==3.14)printf("%.2f ",arr->arr[i]);
-//            else printf("%.5f ",arr->arr[i]);
-//        }
-        print_complex(arr->arr[i]);
+    double x=creal(n), y=cimag(n);
+    if (x!=0){
+        printf("%g",x);
+        if (y!=0){
+            if (y>0) printf("+");
+            printf("%g*j",y);
+        }
     }
-//    printf("\n");
+    else{
+        printf("%g*j",y);
+    }
 }
