@@ -30,12 +30,12 @@ void push_variable(VARIABLE_ARR* arr,VARIABLE* var){
 
 void print_variables(VARIABLE_ARR* arr){
     for (int i=0;i<arr->current;++i){
-        printf("%s = %f\n",arr->arr[i].name,arr->arr[i].value.real_value);
+        printf("%s = %f %f\n",arr->arr[i].name,creal(arr->arr[i].value),cimag(arr->arr[i].value));
     }
     printf("\n");
 }
 
-COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
+comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
     var->checked=1;
     ARRAY list,stack;
     init_arr(&list);

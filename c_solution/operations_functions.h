@@ -13,6 +13,7 @@ comp phase(comp a);
 comp cabsd(comp a);
 comp creald(comp a);
 comp cimagd(comp a);
+comp clog10(comp a);
 
 comp plus(comp a, comp b);
 comp minus(comp a, comp b);

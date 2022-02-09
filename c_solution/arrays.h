@@ -1,5 +1,7 @@
 #ifndef C_SOLUTION_ARRAYS_H
 #define C_SOLUTION_ARRAYS_H
+#include <complex.h>
+#define comp double complex
 
 typedef struct{
     char st[20];
@@ -12,13 +14,13 @@ typedef struct{
     int current;
 }ARRAY;
 
-typedef struct{
-    double real_value;
-    double imag_value;
-}COMPLEX_NUM;
+//typedef struct{
+//    double real_value;
+//    double imag_value;
+//}COMPLEX_NUM;
 
 typedef struct{
-    COMPLEX_NUM* arr;
+    comp* arr;
     int max_size;
     int current;
 }COMPLEX_ARR;
@@ -31,6 +33,6 @@ void init_arr(ARRAY* arr);
 void resize(ARRAY* arr);
 void push(ARRAY* arr,WORD* word);
 void arr_print(ARRAY* arr);
-void print_complex(COMPLEX_NUM n);
+void print_complex(comp n);
 
 #endif

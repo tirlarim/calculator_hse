@@ -1,7 +1,6 @@
 #include "calculations.h"
 #include "is_smh_compare.h"
 #include <string.h>
-#include <math.h>
 #include "operations_functions.h"
 
 void is_num_or_const(COMPLEX_ARR * arr, WORD* word){
@@ -10,12 +9,16 @@ void is_num_or_const(COMPLEX_ARR * arr, WORD* word){
     }
     else{
         WORD con;
-        if (word->st[0]=='P'){
+        if (word->st[0]=='P' || word->st[0]=='p'){
             con.st[0]='3';
             con.st[1]='.';
             con.st[2]='1';
             con.st[3]='4';
-            con.current=4;
+            con.st[4]='1';
+            con.st[5]='5';
+            con.st[6]='9';
+            con.st[7]='2';
+            con.current=8;
         }
 
         if (word->st[0]=='e'){
@@ -24,7 +27,11 @@ void is_num_or_const(COMPLEX_ARR * arr, WORD* word){
             con.st[2]='7';
             con.st[3]='1';
             con.st[4]='8';
-            con.current=5;
+            con.st[5]='2';
+            con.st[6]='8';
+            con.st[7]='1';
+
+            con.current=8;
         }
         if (word->st[0]=='j'){
             //TODO - know what 'j' is
@@ -34,8 +41,8 @@ void is_num_or_const(COMPLEX_ARR * arr, WORD* word){
 }
 
 int choose (const char* str){
-    char* functions[]={"cos","sin","tg", "ln","sqrt","abs", "exp", "u-", "real","imag","mag","phase"};
-    for (int i=0;i<12;++i){
+    char* functions[]={"cos","sin","tg", "ln","lg","sqrt","abs", "exp", "u-", "real","imag","mag","phase"};
+    for (int i=0;i<13;++i){
         if (strcmp(str,functions[i])==0){
             return i;
         }
@@ -45,13 +52,8 @@ int choose (const char* str){
 
 
 void is_f(COMPLEX_ARR* arr, WORD* word){
-//    comp z=arr->arr[arr->current-1].real_value+arr->arr[arr->current-1].imag_value*I;
-    comp (*functions[])(comp)={ccos,csin,ctan,clog,csqrt, cabsd,cexp, u ,creald,cimagd,mag,phase};
-    int i=choose(word->st);
-    if (i==-1) return;
-    comp z=functions[i](arr->arr[arr->current-1].real_value+arr->arr[arr->current-1].imag_value*I);
-    arr->arr[arr->current-1].real_value=creal(z);
-    arr->arr[arr->current-1].imag_value=cimag(z);
+    comp (*functions[])(comp)={ccos, csin, ctan, clog, clog10, csqrt, cabsd, cexp, u , creald, cimagd, mag, phase};
+    arr->arr[arr->current-1]=functions[choose(word->st)](arr->arr[arr->current-1]);
 }
 
 int choose_c(char* str){
@@ -66,30 +68,6 @@ int choose_c(char* str){
 
 void is_operation(COMPLEX_ARR * arr, WORD* word){
     comp (*operations[])(comp,comp)={plus,minus,multiplication,division,exponentiation};
-    int i=choose_c(word->st);
-    if (i==-1) return;
-    comp z=operations[i](arr->arr[arr->current-2].real_value+arr->arr[arr->current-2].imag_value*I,arr->arr[arr->current-1].real_value+arr->arr[arr->current-1].imag_value*I);
-    arr->arr[arr->current-2].real_value=creal(z);
-    arr->arr[arr->current-2].imag_value=cimag(z);
+    arr->arr[arr->current-2]=operations[choose_c(word->st)](arr->arr[arr->current-2],arr->arr[arr->current-1]);
     --arr->current;
-//    if (word->st[0]=='+'){
-//        arr->arr[arr->current-2].real_value+=arr->arr[arr->current-1].real_value;
-//        --arr->current;
-//    }
-//    if (word->st[0]=='-'){
-//        arr->arr[arr->current-2].real_value-=arr->arr[arr->current-1].real_value;
-//        --arr->current;
-//    }
-//    if (word->st[0]=='*'){
-//        arr->arr[arr->current-2].real_value*=arr->arr[arr->current-1].real_value;
-//        --arr->current;
-//    }
-//    if (word->st[0]=='/'){
-//        arr->arr[arr->current-2].real_value/=arr->arr[arr->current-1].real_value;
-//        --arr->current;
-//    }
-//    if (word->st[0]=='^'){
-//        arr->arr[arr->current-2].real_value=pow(arr->arr[arr->current-2].real_value,arr->arr[arr->current-1].real_value);
-//        --arr->current;
-//    }
 }

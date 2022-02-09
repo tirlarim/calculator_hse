@@ -6,7 +6,7 @@
 typedef struct{
     char name[20];
     char str[1000];
-    COMPLEX_NUM value;
+    comp value;
     int checked;
 }VARIABLE;
 
@@ -20,6 +20,6 @@ void init_variable_arr(VARIABLE_ARR* var);
 void resize_var_arr(VARIABLE_ARR* var);
 void push_variable(VARIABLE_ARR* arr,VARIABLE* var);
 void print_variables(VARIABLE_ARR* arr);
-COMPLEX_NUM calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var);
+comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var);
 
 #endif

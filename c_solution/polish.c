@@ -8,7 +8,7 @@
 #include "variables.h"
 #define expression_size 1000
 
-COMPLEX_NUM Calculations(){
+comp Calculations(){
     freopen("../input.txt","r",stdin);
     freopen("../output.txt","w",stdout);
 
@@ -21,7 +21,6 @@ COMPLEX_NUM Calculations(){
         printf("ERROR:\nEnter the expression\n");
         exit(0);
     }
-
     WORD buf;
     memset(buf.st,0,sizeof(buf.st));
     buf.current=0;
@@ -39,11 +38,9 @@ COMPLEX_NUM Calculations(){
                     is_number_function_variable(&list,&buf); // __1__
                 }
                 if (flag==1 && is_function(&buf)) {
-//                    printf("%d\n",choose(buf.st));
                     is_number_function_variable(&stack,&buf); // __2__
                 }
                 flag=0;
-
                 if (expression[i]=='(') {
                     ++k_o;
                     is_open_bracket(&stack); // __3__
@@ -72,11 +69,14 @@ COMPLEX_NUM Calculations(){
         --stack.current;
     }
     //-------------------- variables
-
+//
 //    printf("--\n");
 //    arr_print(&list);
 //    printf("--\n");
-
+    if (stack.current==0 && list.current==0){
+        printf("ERROR:\nEnter the expression\n");
+        exit(0);
+    }
     VARIABLE_ARR variables;
     init_variable_arr(&variables);
     while (!feof(stdin)){
@@ -116,6 +116,9 @@ COMPLEX_NUM Calculations(){
             is_operation(&new_stack,&list.str[i]);
             continue;
         }
+//        if (strcmp(list.str[i].st,"j")==0){
+//            printf("1");
+//        }
         int fl=0;
         for (int j=0;j<variables.current;++j){
             if (strcmp(variables.arr[j].name,list.str[i].st)==0){

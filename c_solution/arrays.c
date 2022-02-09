@@ -1,6 +1,7 @@
 #include "arrays.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void init_arr(ARRAY* arr){
     arr->current=arr->max_size=0;
@@ -40,7 +41,7 @@ void init_complex_arr(COMPLEX_ARR * arr){
 }
 
 void resize_complex(COMPLEX_ARR* arr){
-    COMPLEX_NUM* new=(COMPLEX_NUM *)calloc(arr->max_size*2+1,sizeof(COMPLEX_NUM));
+    comp* new=(comp *)calloc(arr->max_size*2+1,sizeof(comp));
     for (int i=0;i<arr->current;++i){
         new[i]=arr->arr[i];
     }
@@ -53,11 +54,16 @@ void push_complex(COMPLEX_ARR* arr, WORD* word){
     if (arr->current==arr->max_size){
         resize_complex(arr);
     }
+//    printf("%s\n",word->st);
+//    printf("%f",strtod(word->st,(char**)&word->st[0]));
 //    arr->arr[arr->current].real_value=arr->arr[arr->current++].imag_value=0;
-    arr->arr[arr->current++].real_value=strtod(word->st,(char**)&word->st[0]);
+    if (strcmp(word->st,"j")==0){
+        arr->arr[arr->current++]=I;
+    }
+    else arr->arr[arr->current++]=strtod(word->st,(char**)&word->st[0]);
 }
 
-void print_complex(COMPLEX_NUM n){
+void print_complex(comp n){
 //    if ((int)n==n) printf("%.0f ",n);
 //    else {
 //        if (n==2.718){
@@ -66,7 +72,7 @@ void print_complex(COMPLEX_NUM n){
 //        if (n==3.14)printf("%.2f ",n);
 //        else printf("%.5f ",n);
 //    }
-    printf("%f %f\n",n.real_value,n.imag_value);
+    printf("%f %f\n",creal(n),cimag(n));
 }
 
 void arr_print_complex(COMPLEX_ARR * arr){
