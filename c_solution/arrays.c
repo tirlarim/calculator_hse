@@ -74,11 +74,27 @@ void print_complex(comp n){
     if (x!=0){
         printf("%g",x);
         if (y!=0){
+            if (y==1){
+                printf("+j");
+                return;
+            }
+            if (y==-1){
+                printf("-j");
+                return;
+            }
             if (y>0) printf("+");
             printf("%g*j",y);
         }
     }
     else{
+        if (y==1){
+            printf("j");
+            return;
+        }
+        if (y==-1){
+            printf("-j");
+            return;
+        }
         printf("%g*j",y);
     }
 }

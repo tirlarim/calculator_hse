@@ -63,7 +63,7 @@ void Calculations(){
     }
     if (k_o!=k_z) {
         printf("ERROR:\nCheck brackets in the expression\n");
-        exit(1);
+        exit(0);
     }
 
     while (stack.current!=0){
@@ -124,7 +124,7 @@ void Calculations(){
         }
         if (fl==0){
             printf("ERROR:\nThere is no variable %s\n",list.str[i].st);
-            exit(1);
+            exit(0);
         }
     }
 

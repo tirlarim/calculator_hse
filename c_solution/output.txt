@@ -1,8 +1,5 @@
 RESULT:
-1.40368
+-1
 
 EXPRESSION: 
-log(3+1,-1+2^3)
-
-VARIABLES:
-l = 0.721057
+j*j
