@@ -249,6 +249,30 @@ is_smh_compare.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/is_smh_compare.c.s
 .PHONY : is_smh_compare.c.s
 
+operations_functions.o: operations_functions.c.o
+.PHONY : operations_functions.o
+
+# target to build an object file
+operations_functions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/operations_functions.c.o
+.PHONY : operations_functions.c.o
+
+operations_functions.i: operations_functions.c.i
+.PHONY : operations_functions.i
+
+# target to preprocess a source file
+operations_functions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/operations_functions.c.i
+.PHONY : operations_functions.c.i
+
+operations_functions.s: operations_functions.c.s
+.PHONY : operations_functions.s
+
+# target to generate assembly for a file
+operations_functions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/c_solution.dir/build.make CMakeFiles/c_solution.dir/operations_functions.c.s
+.PHONY : operations_functions.c.s
+
 polish.o: polish.c.o
 .PHONY : polish.o
 
@@ -321,6 +345,9 @@ help:
 	@echo "... is_smh_compare.o"
 	@echo "... is_smh_compare.i"
 	@echo "... is_smh_compare.s"
+	@echo "... operations_functions.o"
+	@echo "... operations_functions.i"
+	@echo "... operations_functions.s"
 	@echo "... polish.o"
 	@echo "... polish.i"
 	@echo "... polish.s"

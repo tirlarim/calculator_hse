@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/c_solution.dir/calculator_main.c.o.d"
   "CMakeFiles/c_solution.dir/is_smh_compare.c.o"
   "CMakeFiles/c_solution.dir/is_smh_compare.c.o.d"
+  "CMakeFiles/c_solution.dir/operations_functions.c.o"
+  "CMakeFiles/c_solution.dir/operations_functions.c.o.d"
   "CMakeFiles/c_solution.dir/polish.c.o"
   "CMakeFiles/c_solution.dir/polish.c.o.d"
   "CMakeFiles/c_solution.dir/variables.c.o"

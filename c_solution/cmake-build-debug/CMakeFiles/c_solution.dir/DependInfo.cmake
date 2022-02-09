@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/calculations.c" "CMakeFiles/c_solution.dir/calculations.c.o" "gcc" "CMakeFiles/c_solution.dir/calculations.c.o.d"
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/calculator_main.c" "CMakeFiles/c_solution.dir/calculator_main.c.o" "gcc" "CMakeFiles/c_solution.dir/calculator_main.c.o.d"
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.c" "CMakeFiles/c_solution.dir/is_smh_compare.c.o" "gcc" "CMakeFiles/c_solution.dir/is_smh_compare.c.o.d"
+  "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/operations_functions.c" "CMakeFiles/c_solution.dir/operations_functions.c.o" "gcc" "CMakeFiles/c_solution.dir/operations_functions.c.o.d"
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.c" "CMakeFiles/c_solution.dir/polish.c.o" "gcc" "CMakeFiles/c_solution.dir/polish.c.o.d"
   "/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/variables.c" "CMakeFiles/c_solution.dir/variables.c.o" "gcc" "CMakeFiles/c_solution.dir/variables.c.o.d"
   )

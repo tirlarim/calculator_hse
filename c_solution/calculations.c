@@ -2,6 +2,7 @@
 #include "is_smh_compare.h"
 #include <string.h>
 #include <math.h>
+#include "operations_functions.h"
 
 void is_num_or_const(COMPLEX_ARR * arr, WORD* word){
     if (is_num(word)){
@@ -33,10 +34,8 @@ void is_num_or_const(COMPLEX_ARR * arr, WORD* word){
 }
 
 int choose (const char* str){
-    char* functions[]={"cos","sin","tg", "ln","sqrt","abs", "exp", "u-"
-//                       , "real","imag","mag","phase"
-    };
-    for (int i=0;i<8;++i){
+    char* functions[]={"cos","sin","tg", "ln","sqrt","abs", "exp", "u-", "real","imag","mag","phase"};
+    for (int i=0;i<12;++i){
         if (strcmp(str,functions[i])==0){
             return i;
         }
@@ -44,36 +43,53 @@ int choose (const char* str){
     return -1;
 }
 
-double u(double a) {return -a;}
 
 void is_f(COMPLEX_ARR* arr, WORD* word){
-    double (*functions[])(double)={cos,sin,tan,log,sqrt,fabs,exp, u
-//                                   ,real,imag,mag,phase
-    };
+//    comp z=arr->arr[arr->current-1].real_value+arr->arr[arr->current-1].imag_value*I;
+    comp (*functions[])(comp)={ccos,csin,ctan,clog,csqrt, cabsd,cexp, u ,creald,cimagd,mag,phase};
     int i=choose(word->st);
     if (i==-1) return;
-    arr->arr[arr->current-1].real_value=functions[i](arr->arr[arr->current-1].real_value);
+    comp z=functions[i](arr->arr[arr->current-1].real_value+arr->arr[arr->current-1].imag_value*I);
+    arr->arr[arr->current-1].real_value=creal(z);
+    arr->arr[arr->current-1].imag_value=cimag(z);
+}
+
+int choose_c(char* str){
+    char* operations[]={"+","-","*","/","^"};
+    for (int i=0;i<5;++i){
+        if (strcmp(str,operations[i])==0){
+            return i;
+        }
+    }
+    return -1;
 }
 
 void is_operation(COMPLEX_ARR * arr, WORD* word){
-    if (word->st[0]=='+'){
-        arr->arr[arr->current-2].real_value+=arr->arr[arr->current-1].real_value;
-        --arr->current;
-    }
-    if (word->st[0]=='-'){
-        arr->arr[arr->current-2].real_value-=arr->arr[arr->current-1].real_value;
-        --arr->current;
-    }
-    if (word->st[0]=='*'){
-        arr->arr[arr->current-2].real_value*=arr->arr[arr->current-1].real_value;
-        --arr->current;
-    }
-    if (word->st[0]=='/'){
-        arr->arr[arr->current-2].real_value/=arr->arr[arr->current-1].real_value;
-        --arr->current;
-    }
-    if (word->st[0]=='^'){
-        arr->arr[arr->current-2].real_value=pow(arr->arr[arr->current-2].real_value,arr->arr[arr->current-1].real_value);
-        --arr->current;
-    }
+    comp (*operations[])(comp,comp)={plus,minus,multiplication,division,exponentiation};
+    int i=choose_c(word->st);
+    if (i==-1) return;
+    comp z=operations[i](arr->arr[arr->current-2].real_value+arr->arr[arr->current-2].imag_value*I,arr->arr[arr->current-1].real_value+arr->arr[arr->current-1].imag_value*I);
+    arr->arr[arr->current-2].real_value=creal(z);
+    arr->arr[arr->current-2].imag_value=cimag(z);
+    --arr->current;
+//    if (word->st[0]=='+'){
+//        arr->arr[arr->current-2].real_value+=arr->arr[arr->current-1].real_value;
+//        --arr->current;
+//    }
+//    if (word->st[0]=='-'){
+//        arr->arr[arr->current-2].real_value-=arr->arr[arr->current-1].real_value;
+//        --arr->current;
+//    }
+//    if (word->st[0]=='*'){
+//        arr->arr[arr->current-2].real_value*=arr->arr[arr->current-1].real_value;
+//        --arr->current;
+//    }
+//    if (word->st[0]=='/'){
+//        arr->arr[arr->current-2].real_value/=arr->arr[arr->current-1].real_value;
+//        --arr->current;
+//    }
+//    if (word->st[0]=='^'){
+//        arr->arr[arr->current-2].real_value=pow(arr->arr[arr->current-2].real_value,arr->arr[arr->current-1].real_value);
+//        --arr->current;
+//    }
 }

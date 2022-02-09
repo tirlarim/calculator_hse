@@ -105,6 +105,12 @@
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/is_smh_compare.h">
 			<Option target="c_solution"/>
 		</Unit>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/operations_functions.c">
+			<Option target="c_solution"/>
+		</Unit>
+		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/operations_functions.h">
+			<Option target="c_solution"/>
+		</Unit>
 		<Unit filename="/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/polish.c">
 			<Option target="c_solution"/>
 		</Unit>
