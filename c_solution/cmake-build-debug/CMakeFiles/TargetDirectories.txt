@@ -1,0 +1,3 @@
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/ilavolodin/CLionProjects/calculator_hse/c_solution/cmake-build-debug/CMakeFiles/c_solution.dir
