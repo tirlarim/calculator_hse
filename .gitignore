@@ -12,9 +12,9 @@ Thumbs.db
 node_modules/
 
 # Папка с собранными файлами проекта
-./c_solution/input.txt
-./c_solution/output.txt
-./c_solution/cmake-build-debug
+/**/cmake-build-debug/
+/**/output.txt
+/**/input.txt
 build/
 public/bundle.js
 public/bundle.js.map
