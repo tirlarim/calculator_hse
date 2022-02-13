@@ -10,8 +10,18 @@
 #define expression_size 1000
 
 void Calculations(){
-    freopen("../input.txt","r",stdin);
-    freopen("../output.txt","w",stdout);
+
+    char *HomePath = getenv("USERPROFILE");
+    char pathInput[200] = {0}; char pathOutput[200] = {0};
+    char filePathInput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\input.txt";
+    char filePathOutput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\input.txt";
+    strncat(pathInput, HomePath, 120);
+    strncat(pathInput, filePathInput, 120);
+    strncat(pathOutput, HomePath, 120);
+    strncat(pathOutput, filePathOutput, 120);
+
+    freopen(pathInput,"r",stdin);
+    freopen(pathOutput,"w",stdout);
 
 
     ARRAY list,stack;

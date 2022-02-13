@@ -1,2 +1,4 @@
-ERROR:
-Enter the expression
+3.60288e+16
+
+EXPRESSION: 
+2^55
