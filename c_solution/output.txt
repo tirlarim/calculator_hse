@@ -1,16 +1,2 @@
-RESULT:
-0.442324+1.12829*j
-
-EXPRESSION: 
-exp(-j*PI*alpha*len/v0)+log(smt,2+h*j)
-
-VARIABLES:
-alpha = 24.5432+3.04266e-19*j
-s1 = 1
-s2 = 0.00010124-2.47968e-20*j
-len = 191.76
-v0 = 299.799
-S11 = -0.01-0.92*j
-S22 = 0.0001+0.997*j
-smt = -0.717611-0.696444*j
-h = 0.69897
+ERROR:
+Enter the expression

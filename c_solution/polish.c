@@ -128,7 +128,7 @@ void Calculations(){
         }
     }
 
-    printf("RESULT:\n");
+    //printf("RESULT:\n");
     print_complex(new_stack.arr[0]);
     printf("\n\nEXPRESSION: \n%s\n",expression);
     if (variables.current){

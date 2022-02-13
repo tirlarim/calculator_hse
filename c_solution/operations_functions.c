@@ -1,6 +1,6 @@
 #include "operations_functions.h"
 #include <tgmath.h>
-#include <printf.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 comp u(comp a){return -a;}
