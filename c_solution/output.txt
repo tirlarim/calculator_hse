@@ -1,2 +1,4 @@
-ERROR:
-Enter the expression
+1024
+
+EXPRESSION: 
+2^10
