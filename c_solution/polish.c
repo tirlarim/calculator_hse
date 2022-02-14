@@ -14,7 +14,7 @@ void Calculations(){
     char *HomePath = getenv("USERPROFILE");
     char pathInput[200] = {0}; char pathOutput[200] = {0};
     char filePathInput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\input.txt";
-    char filePathOutput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\input.txt";
+    char filePathOutput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\output.txt";
     strncat(pathInput, HomePath, 120);
     strncat(pathInput, filePathInput, 120);
     strncat(pathOutput, HomePath, 120);
