@@ -623,8 +623,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="simple_button_a">
-                    <property name="label" translatable="yes">a</property>
+                  <object class="GtkButton" id="simple_button_j">
+                    <property name="label" translatable="yes">j</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
@@ -636,8 +636,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="simple_button_b">
-                    <property name="label" translatable="yes">b</property>
+                  <object class="GtkButton" id="simple_button_a">
+                    <property name="label" translatable="yes">a</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
@@ -649,8 +649,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="simple_button_c">
-                    <property name="label" translatable="yes">c</property>
+                  <object class="GtkButton" id="simple_button_b">
+                    <property name="label" translatable="yes">b</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
@@ -777,7 +777,7 @@
             <property name="can-focus">False</property>
             <property name="xalign">0.10000000149011612</property>
             <attributes>
-              <attribute name="font-desc" value="Sans Bold 14"/>
+              <attribute name="font-desc" value="Sans Bold 11"/>
             </attributes>
           </object>
           <packing>
