@@ -83,8 +83,8 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
     }
 
     if (k_o!=k_z) {
-        printf("ERROR:\nCheck brackets in the variable %s\n",var->name);
-        exit(1);
+        printf("ERROR: Check brackets in the variable %s\n",var->name);
+        return 1;
     }
 
     while (stack.current!=0){
@@ -122,8 +122,8 @@ comp calculate_variables(VARIABLE_ARR* arr_var,VARIABLE* var){
             }
         }
         if (fl==0) {
-            printf("ERROR:\nThere is no variable %s\n",list.str[i].st);
-            exit(1);
+            printf("ERROR: There is no variable %s\n",list.str[i].st);
+            return 1;
         }
 
     }
