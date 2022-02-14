@@ -38,7 +38,7 @@ int is_function(const WORD* word){
 }
 
 int is_const(const WORD* word){
-    if (strcmp(word->st,"PI")==0 || strcmp(word->st,"e")==0 || strcmp(word->st,"pi")==0)
+    if (strcmp(word->st,"PI")==0 || strcmp(word->st,"e")==0 || strcmp(word->st,"pi")==0 || strcmp(word->st,"π")==0)
         return 1;
     return 0;
 }

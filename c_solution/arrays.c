@@ -46,6 +46,10 @@ void push_complex(COMPLEX_ARR* arr, WORD* word){
     if (arr->current==arr->max_size){
         resize_complex(arr);
     }
+    if (strcmp(word->st,"π")==0){
+      arr->arr[arr->current++]=M_PI;
+      return;
+    }
     if (strcmp(word->st,"pi")==0){
         arr->arr[arr->current++]=M_PI;
         return;
