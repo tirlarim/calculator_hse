@@ -3,7 +3,8 @@
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "polish.h"
+#include "./utils/foldersWorker.h"
+#include "./polish.h"
 
 GtkWidget *window;
 GtkWidget *textview;
@@ -33,8 +34,15 @@ G_MODULE_EXPORT void on_button_calculate_clicked(GtkButton *b){
 
     sprintf(tmp_input, "%s\n", text_input);
 
+    char *HomePath = getenv("USERPROFILE");
+    char pathInput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\input.txt";
+    char pathOutput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\output.txt";
+
+    char filePathInput[200] = {0};
+    strncat(filePathInput, HomePath, 120);
+    strncat(filePathInput, pathInput, 120);
     FILE *input;
-    input = fopen("C:\\Users\\Ilya\\CLionProjects\\calculator_hse\\c_solution\\input.txt", "w");
+    input = fopen(filePathInput, "w");
     fputs(tmp_input, input);
     fclose(input);
 
@@ -45,8 +53,11 @@ G_MODULE_EXPORT void on_button_calculate_clicked(GtkButton *b){
     const gchar *text_output;
     char tmp_output[1000];
 
+    char filePathOutput[200] = {0};
+    strncat(filePathOutput, HomePath, 120);
+    strncat(filePathOutput, pathOutput, 120);
     FILE *output;
-    output = fopen("C:\\Users\\Ilya\\CLionProjects\\calculator_hse\\c_solution\\output.txt", "r");
+    output = fopen(filePathOutput, "r");
     text_output = fgets(tmp_output, 1000, output);
     fclose(output);
 
@@ -97,22 +108,29 @@ G_MODULE_EXPORT void on_exit(GtkWidget * w) {
 }
 
 int main(int argc, char *argv[]) {
+    generateStorage();
     gtk_init(&argc, &argv);
 
     builder = gtk_builder_new();
     GError * err = NULL;
-    gtk_builder_add_from_file(builder, "C:\\Users\\Ilya\\CLionProjects\\calculator_hse\\c_solution\\gui.glade", &err);
+
+    char *HomePath = getenv("USERPROFILE");
+    char pathGui[] = "\\AppData\\Local\\HSE-Calculator\\storage\\gui.glade";
+    char filePathGui[200] = {0};
+    strncat(filePathGui, HomePath, 120);
+    strncat(filePathGui, pathGui, 120);
+
+    gtk_builder_add_from_file(builder,filePathGui, &err);
     gtk_builder_connect_signals(builder, NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
-    gtk_window_set_title(window, "Калькулятор");
+    gtk_window_set_title(window, "Calculator");
 
     textview = GTK_WIDGET(gtk_builder_get_object(builder, "textview"));
     label = GTK_WIDGET(gtk_builder_get_object(builder, "label"));
     textbuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW(textview));
 
     gtk_widget_show(window);
-
     gtk_main();
 
     exit(0);
