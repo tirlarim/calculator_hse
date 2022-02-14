@@ -29,8 +29,6 @@ void Calculations(){
     char expression[expression_size];
     gets(expression);
     if (strlen(expression)==0){
-//        printf("ERROR:\nEnter the expression\n");
-//        exit(0);
         printf("ERROR: Enter the expression\n");
         fclose(stdin);
         fclose(stdout);
@@ -75,8 +73,6 @@ void Calculations(){
         }
     }
     if (k_o!=k_z) {
-//        printf("ERROR:\nCheck brackets in the expression\n");
-//        exit(0);
         printf("ERROR: Check brackets\n");
         fclose(stdin);
         fclose(stdout);
@@ -89,8 +85,6 @@ void Calculations(){
     }
 
     if (stack.current==0 && list.current==0){
-//        printf("ERROR:\nEnter the expression\n");
-//        exit(0);
         printf("ERROR: Enter the expression\n");
         fclose(stdin);
         fclose(stdout);
@@ -144,8 +138,6 @@ void Calculations(){
             }
         }
         if (fl==0){
-//            printf("ERROR:\nThere is no variable %s\n",list.str[i].st);
-//            exit(0);
             printf("ERROR: There is no variable %s ",list.str[i].st);
             fclose(stdin);
             fclose(stdout);

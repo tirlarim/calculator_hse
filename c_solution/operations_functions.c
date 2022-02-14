@@ -14,8 +14,8 @@ comp empty(comp a){return a;}
 
 comp full_log(comp a, comp b){
     if (a==0 || a==1){
-        printf("ERROR:\nUndefined log\n");
-        exit(0);
+        printf("ERROR: Undefined log\n");
+        return -1;
     }
     return clog(b)/clog(a);
 }
@@ -24,8 +24,8 @@ comp minus(comp a, comp b){return a-b;}
 comp multiplication(comp a, comp b){return a*b;}
 comp division(comp a, comp b){
     if (b==0){
-        printf("ERROR:\nUndefined division\n");
-        exit(0);
+        printf("ERROR: Undefined division\n");
+        return INFINITY;
     }
     return a/b;
 }
