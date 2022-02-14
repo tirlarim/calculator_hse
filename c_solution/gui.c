@@ -103,6 +103,19 @@ G_MODULE_EXPORT void on_button_TAB_clicked(GtkButton *b) {
     gtk_text_buffer_insert(textbuffer, &end, text, (gint) -1);
 }
 
+G_MODULE_EXPORT void on_button_ASSIGN_A_VALUE_clicked(GtkButton *b) {
+  GtkTextIter end;
+  GtkTextMark cursor;
+
+  cursor = *gtk_text_buffer_get_insert(GTK_TEXT_BUFFER(textbuffer));
+  gtk_text_buffer_get_iter_at_mark(GTK_TEXT_BUFFER(textbuffer), &end, &cursor);
+
+  const gchar *text;
+  text = " = ";
+
+  gtk_text_buffer_insert(textbuffer, &end, text, (gint) -1);
+}
+
 G_MODULE_EXPORT void on_exit(GtkWidget * w) {
     gtk_main_quit();
 }
