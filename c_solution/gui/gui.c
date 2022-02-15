@@ -3,8 +3,8 @@
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "./utils/foldersWorker.h"
-#include "./polish.h"
+#include "../utils/foldersWorker.h"
+#include "../polish.h"
 
 GtkWidget *window;
 GtkWidget *textview;
@@ -132,14 +132,19 @@ int main(int argc, char *argv[]) {
     char filePathGui[200] = {0};
     strncat(filePathGui, HomePath, 120);
     strncat(filePathGui, pathGui, 120);
+    char pathIcon[] = "\\AppData\\Local\\HSE-Calculator\\storage\\icon.png";
+    char filePathIcon[200] = {0};
+    strncat(filePathIcon, HomePath, 120);
+    strncat(filePathIcon, pathIcon, 120);
 
     gtk_builder_add_from_file(builder,filePathGui, &err);
     gtk_builder_connect_signals(builder, NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
     gtk_window_set_title(window, "Calculator");
+    gtk_window_set_icon_from_file (window, filePathIcon, NULL);
 
-    textview = GTK_WIDGET(gtk_builder_get_object(builder, "textview"));
+  textview = GTK_WIDGET(gtk_builder_get_object(builder, "textview"));
     label = GTK_WIDGET(gtk_builder_get_object(builder, "label"));
     textbuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW(textview));
 

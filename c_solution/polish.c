@@ -3,7 +3,7 @@
 #include "polish.h"
 #include "is_smh_compare.h"
 #include "calculations.h"
-#include "variables.h"
+#include "calcFnAndVar/variables.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -97,6 +97,14 @@ void Calculations(){
         VARIABLE new;
         new.str[0]=0;
         scanf("%s = ",new.name);
+        WORD test;
+        test.st[0]=0;
+        strcpy(test.st,new.name);
+        printf("%s",test.st);
+        //if(is_num(&test)){
+          //printf("Variable can't be a number: %s",test.st);
+
+        //}
         if (strlen(new.name)==0) break;
         gets(new.str);
         new.checked=0;

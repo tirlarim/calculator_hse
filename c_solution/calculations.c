@@ -1,6 +1,6 @@
 #include "calculations.h"
 #include "is_smh_compare.h"
-#include "operations_functions.h"
+#include "calcFnAndVar/operations_functions.h"
 #include <string.h>
 
 void is_num_or_const(COMPLEX_ARR * arr, WORD* word){push_complex(arr, word);}

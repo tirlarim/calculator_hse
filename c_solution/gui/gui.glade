@@ -88,8 +88,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="simple_button_x">
-                    <property name="label" translatable="yes">x</property>
+                  <object class="GtkButton" id="simple_button_plus">
+                    <property name="label" translatable="yes">+</property>
                     <property name="width-request">51</property>
                     <property name="height-request">42</property>
                     <property name="visible">True</property>
@@ -313,8 +313,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="simple_button_+">
-                    <property name="label" translatable="yes">+</property>
+                  <object class="GtkButton" id="simple_button_divide">
+                    <property name="label" translatable="yes">,</property>
                     <property name="width-request">51</property>
                     <property name="height-request">42</property>
                     <property name="visible">True</property>
@@ -427,8 +427,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="simple_button_pow">
-                    <property name="label" translatable="yes">pow</property>
+                  <object class="GtkButton" id="simple_button_lg">
+                    <property name="label" translatable="yes">lg</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
