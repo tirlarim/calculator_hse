@@ -104,7 +104,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="button_calculate">
-                    <property name="label" translatable="yes">=</property>
+                    <property name="label" translatable="yes">ANS</property>
                     <property name="width-request">51</property>
                     <property name="height-request">42</property>
                     <property name="visible">True</property>
