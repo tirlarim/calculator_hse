@@ -10,7 +10,6 @@
 #define expression_size 1000
 
 void Calculations(){
-
     char *HomePath = getenv("USERPROFILE");
     char pathInput[200] = {0}; char pathOutput[200] = {0};
     char filePathInput[] = "\\AppData\\Local\\HSE-Calculator\\storage\\input.txt";
@@ -97,14 +96,6 @@ void Calculations(){
         VARIABLE new;
         new.str[0]=0;
         scanf("%s = ",new.name);
-        WORD test;
-        test.st[0]=0;
-        strcpy(test.st,new.name);
-        printf("%s",test.st);
-        //if(is_num(&test)){
-          //printf("Variable can't be a number: %s",test.st);
-
-        //}
         if (strlen(new.name)==0) break;
         gets(new.str);
         new.checked=0;
