@@ -663,7 +663,7 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="simple_button_PI">
-                    <property name="label" translatable="yes">PI</property>
+                    <property name="label" translatable="yes">π</property>
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
