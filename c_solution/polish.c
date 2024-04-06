@@ -10,8 +10,8 @@
 #define expression_size 1000
 
 void Calculations(){
-    freopen("../input.txt","r",stdin);
-    freopen("../output.txt","w",stdout);
+    freopen("./input.txt","r",stdin);
+    freopen("./output.txt","w",stdout);
 
     ARRAY list,stack;
     init_arr(&list);

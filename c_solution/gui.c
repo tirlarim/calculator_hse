@@ -29,30 +29,23 @@ G_MODULE_EXPORT void on_button_calculate_clicked(GtkButton *b){
     gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER(textbuffer), &end, (gint) -1);
 
     text_input = gtk_text_buffer_get_text(GTK_TEXT_BUFFER(textbuffer), &begin, &end, FALSE);
-    char tmp_input[1000];
-
-    sprintf(tmp_input, "%s\n", text_input);
 
     FILE *input;
-    input = fopen("C:\\Users\\Ilya\\CLionProjects\\calculator_hse\\c_solution\\input.txt", "w");
-    fputs(tmp_input, input);
+    input = fopen("./input.txt", "w");
+    fputs(text_input, input);
     fclose(input);
 
     //Calculate
     Calculations();
 
     //getting and showing answer
-    const gchar *text_output;
     char tmp_output[1000];
-
     FILE *output;
-    output = fopen("C:\\Users\\Ilya\\CLionProjects\\calculator_hse\\c_solution\\output.txt", "r");
-    text_output = fgets(tmp_output, 1000, output);
+    output = fopen("./output.txt", "r");
+    fgets(tmp_output, 1000, output);
     fclose(output);
 
-    text_output = tmp_output;
-
-    gtk_label_set_text(GTK_LABEL(label), text_output);
+    gtk_label_set_text(GTK_LABEL(label), tmp_output);
 }
 
 G_MODULE_EXPORT void on_button_clear_clicked(GtkButton *b) {
@@ -101,18 +94,17 @@ int main(int argc, char *argv[]) {
 
     builder = gtk_builder_new();
     GError * err = NULL;
-    gtk_builder_add_from_file(builder, "C:\\Users\\Ilya\\CLionProjects\\calculator_hse\\c_solution\\gui.glade", &err);
+    gtk_builder_add_from_file(builder, "./gui.glade", &err);
     gtk_builder_connect_signals(builder, NULL);
 
     window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
-    gtk_window_set_title(window, "Калькулятор");
+    gtk_window_set_title(GTK_WINDOW(window), "Calculator");
 
     textview = GTK_WIDGET(gtk_builder_get_object(builder, "textview"));
     label = GTK_WIDGET(gtk_builder_get_object(builder, "label"));
     textbuffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW(textview));
 
-    gtk_widget_show(window);
-
+    gtk_widget_show(GTK_WIDGET(window));
     gtk_main();
 
     exit(0);
