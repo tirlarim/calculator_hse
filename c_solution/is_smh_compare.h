@@ -3,7 +3,7 @@
 #include "arrays.h"
 
 int is_dig(const char* s);
-int is_u_min(const char* s, const char* previous_s,int i);
+int is_u_min(const char* s, const char* previous_s, int i);
 int is_op_or_bracket_or_comma(const char* s);
 int is_num(const WORD* word);
 int is_function(const WORD* word);

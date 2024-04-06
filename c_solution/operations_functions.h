@@ -12,13 +12,11 @@ comp cimagd(comp a);
 comp clog10(comp a);
 comp empty(comp a);
 
-comp full_log(comp a,comp b);
+comp full_log(comp a, comp b);
 comp plus(comp a, comp b);
 comp minus(comp a, comp b);
 comp multiplication(comp a, comp b);
 comp division(comp a, comp b);
 comp exponentiation(comp a, comp b);
-
-
 
 #endif
