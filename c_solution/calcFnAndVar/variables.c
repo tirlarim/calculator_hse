@@ -1,8 +1,8 @@
 #include "variables.h"
-#include "arrays.h"
-#include "actions.h"
-#include "is_smh_compare.h"
-#include "calculations.h"
+#include "../arrays.h"
+#include "../actions.h"
+#include "../is_smh_compare.h"
+#include "../calculations.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

@@ -3,7 +3,7 @@
 #include "polish.h"
 #include "is_smh_compare.h"
 #include "calculations.h"
-#include "variables.h"
+//#include "variables.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

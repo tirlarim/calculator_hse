@@ -1,6 +1,6 @@
 #ifndef C_SOLUTION_VARIABLES_H
 #define C_SOLUTION_VARIABLES_H
-#include "arrays.h"
+#include "../arrays.h"
 
 typedef struct {
   char name[20];

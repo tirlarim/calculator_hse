@@ -3,8 +3,7 @@ project(c_solution)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
-set(SOURCE_FILES gui gui.c arrays.c arrays.h polish.c polish.h is_smh_compare.c is_smh_compare.h actions.c actions.h calculations.c calculations.h variables.c variables.h operations_functions.c operations_functions.h)
-
+set(SOURCE_FILES gui gui/gui.c arrays.c arrays.h polish.c polish.h is_smh_compare.c is_smh_compare.h actions.c actions.h calculations.c calculations.h calcFnAndVar/variables.c calcFnAndVar/variables.h calcFnAndVar/operations_functions.c calcFnAndVar/operations_functions.h utils/foldersWorker.c utils/foldersWorker.h)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK3 REQUIRED gtk+-3.0)

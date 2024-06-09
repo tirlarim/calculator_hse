@@ -13,7 +13,6 @@ node_modules/
 
 # Папка с собранными файлами проекта
 /**/cmake-build-debug/
-/**/cmake-build-release/
 /**/output.txt
 /**/input.txt
 build/

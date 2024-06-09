@@ -3,7 +3,7 @@
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "polish.h"
+#include "../polish.h"
 
 GtkWidget* window;
 GtkWidget* textview;
@@ -91,7 +91,7 @@ int main(int argc, char* argv[]) {
   gtk_init(&argc, &argv);
   GtkBuilder* builder = gtk_builder_new();
   GError* err = NULL;
-  gtk_builder_add_from_file(builder, "./gui.glade", &err);
+  gtk_builder_add_from_file(builder, "./gui/gui.glade", &err);
   gtk_builder_connect_signals(builder, NULL);
 
   window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
