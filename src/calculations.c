@@ -22,7 +22,7 @@ void is_f(COMPLEX_ARR* arr, WORD* word) {
   arr->arr[arr->current - 1] = functions[choose(word->st)](arr->arr[arr->current - 1]);
 }
 
-int choose_c(char* str) {
+int choose_c(const char* str) {
   char* operations[] = {"+", "-", "*", "/", "^", ","};
   for (int i = 0; i < 6; ++i) {
     if (strcmp(str, operations[i]) == 0) {
@@ -32,8 +32,9 @@ int choose_c(char* str) {
   return -1;
 }
 
-void is_operation(COMPLEX_ARR* arr, WORD* word) {
+void is_operation(COMPLEX_ARR* arr, const WORD* word) {
   comp (*operations[])(comp, comp) = {plus, minus, multiplication, division, exponentiation, full_log};
-  arr->arr[arr->current - 2] = operations[choose_c(word->st)](arr->arr[arr->current - 2], arr->arr[arr->current - 1]);
+  int index = choose_c(word->st);
+  arr->arr[arr->current - 2] = operations[index](arr->arr[arr->current - 2], arr->arr[arr->current - 1]);
   --arr->current;
 }

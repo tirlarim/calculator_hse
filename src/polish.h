@@ -1,6 +1,6 @@
 #ifndef C_SOLUTION_POLISH_H
 #define C_SOLUTION_POLISH_H
 
-void Calculations();
+char* Calculations(char* strIn);
 
 #endif

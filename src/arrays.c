@@ -10,20 +10,20 @@ void init_arr(ARRAY* arr) {
 }
 
 void resize(ARRAY* arr) {
-  WORD* new_arr = (WORD*)calloc(arr->max_size * 2 + 1, sizeof(WORD));
-  for (int i = 0; i < arr->current; ++i) {
-    new_arr[i] = arr->str[i];
-  }
+  arr->max_size = arr->max_size * 2 + 1;
+  WORD* new_arr = calloc(arr->max_size, sizeof(WORD));
+  memcpy(new_arr, arr->str, arr->current* sizeof(*arr->str));
   free(arr->str);
   arr->str = new_arr;
-  arr->max_size = arr->max_size * 2 + 1;
 }
 
-void push(ARRAY* arr, WORD* word) {
+void push(ARRAY* arr, const WORD* word) {
   if (arr->current == arr->max_size) {
     resize(arr);
   }
-  arr->str[arr->current++] = *word;
+  arr->str[arr->current].current = word->current;
+  memcpy(arr->str[arr->current].st, word->st, 20);
+  ++arr->current;
 }
 
 void init_complex_arr(COMPLEX_ARR* arr) {
@@ -45,6 +45,10 @@ void push_complex(COMPLEX_ARR* arr, WORD* word) {
   if (arr->current == arr->max_size) {
     resize_complex(arr);
   }
+  if (strcmp(word->st, "π") == 0) {
+    arr->arr[arr->current++] = M_PI;
+    return;
+  }
   if (strcmp(word->st, "pi") == 0) {
     arr->arr[arr->current++] = M_PI;
     return;
@@ -64,36 +68,37 @@ void push_complex(COMPLEX_ARR* arr, WORD* word) {
   arr->arr[arr->current++] = strtod(word->st, (char**)&word->st[0]);
 }
 
-void print_complex(comp n) {
-  double x = creal(n), y = cimag(n);
+void print_complex(char* outPtr, int* restrict index, comp n) {
+  const double x = creal(n);
+  const double y = cimag(n);
   if (x == 0 && y == 0) {
-    printf("0");
+    *index += sprintf(&outPtr[*index], "0");
     return;
   }
   if (x != 0) {
-    printf("%g", x);
+    *index += sprintf(&outPtr[*index], "%g", x);
     if (y != 0) {
       if (y == 1) {
-        printf("+j");
+        *index += sprintf(&outPtr[*index], "+j");
         return;
       }
       if (y == -1) {
-        printf("-j");
+        *index += sprintf(&outPtr[*index], "-j");
         return;
       }
       if (y > 0)
-        printf("+");
-      printf("%g*j", y);
+        *index += sprintf(&outPtr[*index], "+");
+      *index += sprintf(&outPtr[*index], "%g*j", y);
     }
   } else {
     if (y == 1) {
-      printf("j");
+      *index += sprintf(&outPtr[*index], "j");
       return;
     }
     if (y == -1) {
-      printf("-j");
+      *index += sprintf(&outPtr[*index], "-j");
       return;
     }
-    printf("%g*j", y);
+    *index += sprintf(&outPtr[*index], "%g*j", y);
   }
 }

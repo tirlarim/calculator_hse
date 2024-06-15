@@ -29,15 +29,15 @@ void push_variable(VARIABLE_ARR* arr, VARIABLE* var) {
   arr->arr[arr->current++] = *var;
 }
 
-void print_variables(VARIABLE_ARR* arr) {
+void print_variables(char* outPtr, int* restrict index, VARIABLE_ARR* arr) {
   for (int i = 0; i < arr->current; ++i) {
-    printf("%s = ", arr->arr[i].name);
-    print_complex(arr->arr[i].value);
-    printf("\n");
+    *index += sprintf(&outPtr[*index], "%s = ", arr->arr[i].name);
+    print_complex(outPtr, index, arr->arr[i].value);
+    *index += sprintf(&outPtr[*index], "\n");
   }
 }
 
-comp calculate_variables(VARIABLE_ARR* arr_var, VARIABLE* var) {
+comp calculate_variables(char* output, VARIABLE_ARR* arr_var, VARIABLE* var) {
   var->checked = 1;
   ARRAY list, stack;
   init_arr(&list);
@@ -47,7 +47,7 @@ comp calculate_variables(VARIABLE_ARR* arr_var, VARIABLE* var) {
   memset(buf.st, 0, sizeof(buf.st));
   int flag = 0;
   int k_o = 0, k_z = 0;
-  for (int i = 0; i <= strlen(var->str); ++i) {
+  for (unsigned long i = 0; i <= strlen(var->str); ++i) {
     if (var->str[i] == ' ')
       continue;
 
@@ -82,8 +82,10 @@ comp calculate_variables(VARIABLE_ARR* arr_var, VARIABLE* var) {
   }
 
   if (k_o != k_z) {
-    printf("ERROR:\nCheck brackets in the variable %s\n", var->name);
-    exit(1);
+    const char bracketsErr[] = "ERROR: There is no variable %s\n";
+    sprintf(output, bracketsErr, var->name);
+    fprintf(stderr, bracketsErr, var->name);
+    return 1;
   }
 
   while (stack.current != 0) {
@@ -111,7 +113,7 @@ comp calculate_variables(VARIABLE_ARR* arr_var, VARIABLE* var) {
       if (strcmp(arr_var->arr[j].name, list.str[i].st) == 0) {
         fl = 1;
         if (!arr_var->arr[j].checked) {
-          arr_var->arr[j].value = calculate_variables(arr_var, &arr_var->arr[j]);
+          arr_var->arr[j].value = calculate_variables(output, arr_var, &arr_var->arr[j]); // handle error
         }
         if (new_stack.current == new_stack.max_size) {
           resize_complex(&new_stack);
@@ -121,8 +123,10 @@ comp calculate_variables(VARIABLE_ARR* arr_var, VARIABLE* var) {
       }
     }
     if (fl == 0) {
-      printf("ERROR:\nThere is no variable %s\n", list.str[i].st);
-      exit(1);
+      const char noVarErr[] = "ERROR: There is no variable %s\n";
+      sprintf(output, noVarErr, list.str[i].st);
+      fprintf(stderr, noVarErr, list.str[i].st);
+      return 1;
     }
   }
   return new_stack.arr[0];
