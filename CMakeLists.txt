@@ -22,13 +22,6 @@ add_compile_options(-Wno-error=unused-local-typedef)
 file(GLOB_RECURSE SRC "src/*.c")
 file(GLOB_RECURSE HEADERS "src/*.h")
 
-# Configure GTK3
-find_package(PkgConfig 0.29.0 REQUIRED)
-pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
-add_definitions(${GTK3_CFLAGS_OTHER})
-include_directories(${GTK3_INCLUDE_DIRS})
-link_directories(${GTK3_LIBRARY_DIRS})
-
 #Configure Lib
 add_library(${PROJECT_NAME} STATIC ${SRC} ${HEADERS})
 target_include_directories(${PROJECT_NAME} PRIVATE ${HEADERS})
