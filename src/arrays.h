@@ -25,6 +25,6 @@ void push_complex(COMPLEX_ARR * arr, WORD* word);
 void init_complex_arr(COMPLEX_ARR* arr);
 void init_arr(ARRAY* arr);
 void push(ARRAY* arr, const WORD* word);
-void print_complex(char* outPtr, int* restrict index, comp n);
+void print_complex(char* outPtr, int* index, comp n);
 
 #endif

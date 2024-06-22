@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// 1 argument functions
 comp u(comp a){return -a;}
 comp mag(comp a){return cabs(a);}
 comp phase(comp a){return atan(cimag(a)/creal(a));}
@@ -12,6 +13,7 @@ comp cimagd(comp a){return cimag(a);}
 comp clog10(comp a){return clog(a)/clog(10);}
 comp empty(comp a){return a;}
 
+// 2 arguments functions
 comp full_log(comp a, comp b){
     if (a==0 || a==1){
         printf("ERROR: Undefined log\n");

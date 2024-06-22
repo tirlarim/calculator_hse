@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22 FATAL_ERROR)
-project(calculator_hse VERSION 1.0.1 LANGUAGES C)
+project(calculator_hse VERSION 1.0.3 LANGUAGES C)
 
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -20,13 +20,8 @@ add_compile_options(-Wunused-local-typedef)
 add_compile_options(-Wno-error=unused-local-typedef)
 
 # SET SRC
-file(GLOB_RECURSE SRC "src/*.c" "src/*.h")
+file(GLOB_RECURSE SRC "src/*.c")
 file(GLOB_RECURSE HEADERS "src/*.h")
-#set(SRC
-#    ./src/gui.c ./src/arrays.c ./src/arrays.h ./src/polish.c ./src/polish.h ./src/is_smh_compare.c
-#    ./src/is_smh_compare.h ./src/actions.c ./src/actions.h ./src/calculations.c ./src/calculations.h
-#    ./src/calcFnAndVar/variables.c ./src/calcFnAndVar/variables.h ./src/calcFnAndVar/operations_functions.c
-#    ./src/calcFnAndVar/operations_functions.h)
 
 # Configure GTK3
 find_package(PkgConfig 0.29.0 REQUIRED)
@@ -35,7 +30,7 @@ add_definitions(${GTK3_CFLAGS_OTHER})
 include_directories(${GTK3_INCLUDE_DIRS})
 link_directories(${GTK3_LIBRARY_DIRS})
 
-add_executable(${PROJECT_NAME} ${SRC})
+add_executable(${PROJECT_NAME} ${SRC} ${HEADERS})
 
 set(GUI_GLADE_SOURCE ${CMAKE_SOURCE_DIR}/view/gui.glade)
 set(ICON_PNG_SOURCE ${CMAKE_SOURCE_DIR}/view/icon.png)

@@ -17,7 +17,7 @@ typedef struct{
 
 void init_variable_arr(VARIABLE_ARR* var);
 void push_variable(VARIABLE_ARR* arr,VARIABLE* var);
-void print_variables(char* outPtr, int* restrict index, VARIABLE_ARR* arr);
+void print_variables(char* outPtr, int* index, VARIABLE_ARR* arr);
 comp calculate_variables(char* output, VARIABLE_ARR* arr_var,VARIABLE* var);
 
 #endif

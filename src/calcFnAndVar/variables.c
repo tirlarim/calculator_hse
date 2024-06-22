@@ -29,7 +29,7 @@ void push_variable(VARIABLE_ARR* arr, VARIABLE* var) {
   arr->arr[arr->current++] = *var;
 }
 
-void print_variables(char* outPtr, int* restrict index, VARIABLE_ARR* arr) {
+void print_variables(char* outPtr, int* index, VARIABLE_ARR* arr) {
   for (int i = 0; i < arr->current; ++i) {
     *index += sprintf(&outPtr[*index], "%s = ", arr->arr[i].name);
     print_complex(outPtr, index, arr->arr[i].value);

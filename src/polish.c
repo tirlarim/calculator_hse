@@ -32,8 +32,8 @@ char* Calculations(char* strIn) {
   char* output = calloc(expression_size, sizeof(*output));
   readLine(expression, expression_size, &strIn);
   size_t exprLen = strlen(expression);
-  if (expression[exprLen-1] == '\n')
-    expression[exprLen-1] = '\0';
+  if (expression[exprLen - 1] == '\n')
+    expression[exprLen - 1] = '\0';
   if (strlen(expression) == 0) {
     const char expressionError[] = "ERROR: Enter the expression\n";
     sprintf(output, "%s\n", expressionError);
@@ -122,7 +122,7 @@ char* Calculations(char* strIn) {
     while (strIn[parceVarIndex] != '\n' && strIn[parceVarIndex] != '\0') {
       ++parceVarIndex;
     }
-    currenetVar.str[strlen(currenetVar.str)-1] = '\0';
+    currenetVar.str[strlen(currenetVar.str) - 1] = '\0';
     currenetVar.checked = 0;
     if (strlen(currenetVar.str) != 0) {
       push_variable(&variables, &currenetVar);
@@ -146,6 +146,10 @@ char* Calculations(char* strIn) {
       is_f(&new_stack, &list.str[i]);
       continue;
     }
+    // if (is_2arg_function(&list.str[i])) {
+    //   is_2arg_f(&new_stack, &list.str[i]);
+    //   continue;
+    // }
     if (is_op_or_bracket_or_comma(&list.str[i].st[0])) {
       is_operation(&new_stack, &list.str[i]);
       continue;
@@ -168,7 +172,6 @@ char* Calculations(char* strIn) {
     }
   }
 
-  //printf("RESULT:\n");
   int printIndex = 0;
   print_complex(output, &printIndex, new_stack.arr[0]);
 #if 0  // For debug you can also print EXPRESSION and vars.

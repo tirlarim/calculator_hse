@@ -12,7 +12,7 @@ void init_arr(ARRAY* arr) {
 void resize(ARRAY* arr) {
   arr->max_size = arr->max_size * 2 + 1;
   WORD* new_arr = calloc(arr->max_size, sizeof(WORD));
-  memcpy(new_arr, arr->str, arr->current* sizeof(*arr->str));
+  memcpy(new_arr, arr->str, arr->current * sizeof(*arr->str));
   free(arr->str);
   arr->str = new_arr;
 }
@@ -45,15 +45,7 @@ void push_complex(COMPLEX_ARR* arr, WORD* word) {
   if (arr->current == arr->max_size) {
     resize_complex(arr);
   }
-  if (strcmp(word->st, "π") == 0) {
-    arr->arr[arr->current++] = M_PI;
-    return;
-  }
-  if (strcmp(word->st, "pi") == 0) {
-    arr->arr[arr->current++] = M_PI;
-    return;
-  }
-  if (strcmp(word->st, "PI") == 0) {
+  if (strcmp(word->st, "π") == 0 || strcmp(word->st, "pi") == 0 || strcmp(word->st, "PI") == 0) {
     arr->arr[arr->current++] = M_PI;
     return;
   }
@@ -68,7 +60,7 @@ void push_complex(COMPLEX_ARR* arr, WORD* word) {
   arr->arr[arr->current++] = strtod(word->st, (char**)&word->st[0]);
 }
 
-void print_complex(char* outPtr, int* restrict index, comp n) {
+void print_complex(char* outPtr, int* index, comp n) {
   const double x = creal(n);
   const double y = cimag(n);
   if (x == 0 && y == 0) {
