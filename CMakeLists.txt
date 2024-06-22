@@ -30,18 +30,18 @@ include_directories(${GTK3_INCLUDE_DIRS})
 link_directories(${GTK3_LIBRARY_DIRS})
 
 # Configure Resources
-set(GUI_GLADE_SOURCE ${CMAKE_SOURCE_DIR}/view/gui.glade)
-set(ICON_PNG_SOURCE ${CMAKE_SOURCE_DIR}/view/icon.png)
-set(GUI_GLADE_DESTINATION ${CMAKE_BINARY_DIR}/view/gui.glade)
-set(ICON_PNG_DESTINATION ${CMAKE_BINARY_DIR}/view/icon.png)
-configure_file(${GUI_GLADE_SOURCE} ${GUI_GLADE_DESTINATION} COPYONLY)
-configure_file(${ICON_PNG_SOURCE} ${ICON_PNG_DESTINATION} COPYONLY)
+#set(GUI_GLADE_SOURCE ${CMAKE_SOURCE_DIR}/view/gui.glade)
+#set(ICON_PNG_SOURCE ${CMAKE_SOURCE_DIR}/view/icon.png)
+#set(GUI_GLADE_DESTINATION ${CMAKE_BINARY_DIR}/view/gui.glade)
+#set(ICON_PNG_DESTINATION ${CMAKE_BINARY_DIR}/view/icon.png)
+#configure_file(${GUI_GLADE_SOURCE} ${GUI_GLADE_DESTINATION} COPYONLY)
+#configure_file(${ICON_PNG_SOURCE} ${ICON_PNG_DESTINATION} COPYONLY)
 
 # Configure App
-add_executable(${PROJECT_NAME} ${SRC} ${HEADERS} ./view/gui.c)
-set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
-target_include_directories(${PROJECT_NAME} PRIVATE ${HEADERS})
-target_link_libraries(${PROJECT_NAME} PRIVATE ${GTK3_LIBRARIES})
+#add_executable(${PROJECT_NAME} ${SRC} ${HEADERS} ./view/gui.c)
+#set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+#target_include_directories(${PROJECT_NAME} PRIVATE ${HEADERS})
+#target_link_libraries(${PROJECT_NAME} PRIVATE ${GTK3_LIBRARIES})
 
 #Configure Lib
 add_library(${PROJECT_NAME}_lib STATIC ${SRC} ${HEADERS})
