@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22 FATAL_ERROR)
-project(calculator_hse VERSION 1.0.3 LANGUAGES C)
+project(calculator_hse_lib VERSION 1.0.3 LANGUAGES C)
 
 # Configure Flags
 set(CMAKE_C_STANDARD 23)
@@ -30,6 +30,5 @@ include_directories(${GTK3_INCLUDE_DIRS})
 link_directories(${GTK3_LIBRARY_DIRS})
 
 #Configure Lib
-add_library(${PROJECT_NAME}_lib STATIC ${SRC} ${HEADERS})
-target_include_directories(${PROJECT_NAME}_lib PRIVATE ${HEADERS})
-target_include_directories(${PROJECT_NAME}_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+add_library(${PROJECT_NAME} STATIC ${SRC} ${HEADERS})
+target_include_directories(${PROJECT_NAME} PRIVATE ${HEADERS})
