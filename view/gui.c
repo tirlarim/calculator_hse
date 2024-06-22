@@ -2,7 +2,7 @@
 //gcc -o gui gui.c arrays.c arrays.h polish.c polish.h is_smh_compare.c is_smh_compare.h actions.c actions.h calculations.c calculations.h variables.c variables.h operations_functions.c operations_functions.h -lm `pkg-config --cflags --libs gtk+-3.0` -rdynamic
 #include <gtk/gtk.h>
 #include <stdlib.h>
-#include "polish.h"
+#include "../src/polish.h"
 
 GtkWidget* window;
 GtkWidget* textview;

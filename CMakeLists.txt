@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.22 FATAL_ERROR)
 project(calculator_hse VERSION 1.0.3 LANGUAGES C)
 
+# Configure Flags
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-
 set(ERROR_FLAGS "-Werror -Wall -Werror=vla -Wno-deprecated-declarations")
 set(OPTIMIZATION_FLAGS "-march=native")
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
@@ -19,7 +19,6 @@ add_compile_options(-Wno-error=unused-variable)
 add_compile_options(-Wunused-local-typedef)
 add_compile_options(-Wno-error=unused-local-typedef)
 
-# SET SRC
 file(GLOB_RECURSE SRC "src/*.c")
 file(GLOB_RECURSE HEADERS "src/*.h")
 
@@ -30,8 +29,7 @@ add_definitions(${GTK3_CFLAGS_OTHER})
 include_directories(${GTK3_INCLUDE_DIRS})
 link_directories(${GTK3_LIBRARY_DIRS})
 
-add_executable(${PROJECT_NAME} ${SRC} ${HEADERS})
-
+# Configure Resources
 set(GUI_GLADE_SOURCE ${CMAKE_SOURCE_DIR}/view/gui.glade)
 set(ICON_PNG_SOURCE ${CMAKE_SOURCE_DIR}/view/icon.png)
 set(GUI_GLADE_DESTINATION ${CMAKE_BINARY_DIR}/view/gui.glade)
@@ -39,7 +37,13 @@ set(ICON_PNG_DESTINATION ${CMAKE_BINARY_DIR}/view/icon.png)
 configure_file(${GUI_GLADE_SOURCE} ${GUI_GLADE_DESTINATION} COPYONLY)
 configure_file(${ICON_PNG_SOURCE} ${ICON_PNG_DESTINATION} COPYONLY)
 
-# Configure Target
+# Configure App
+add_executable(${PROJECT_NAME} ${SRC} ${HEADERS} ./view/gui.c)
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${HEADERS})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${GTK3_LIBRARIES})
+
+#Configure Lib
+add_library(${PROJECT_NAME}_lib STATIC ${SRC} ${HEADERS})
+target_include_directories(${PROJECT_NAME}_lib PRIVATE ${HEADERS})
+target_include_directories(${PROJECT_NAME}_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
