@@ -60,7 +60,7 @@ void push_complex(COMPLEX_ARR* arr, WORD* word) {
   arr->arr[arr->current++] = strtod(word->st, (char**)&word->st[0]);
 }
 
-void print_complex(char* outPtr, int* index, comp n) {
+void print_complex(char* outPtr, int* index, const comp n) {
   const double x = creal(n);
   const double y = cimag(n);
   if (x == 0 && y == 0) {

@@ -5,6 +5,6 @@
 
 void is_num_or_const(COMPLEX_ARR* arr, WORD* word);
 void is_operation(COMPLEX_ARR* arr, const WORD* word);
-void is_f(COMPLEX_ARR* arr, WORD* word);
+void is_f(const COMPLEX_ARR* arr, const WORD* word);
 
 #endif

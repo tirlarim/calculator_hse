@@ -146,10 +146,6 @@ char* Calculations(char* strIn) {
       is_f(&new_stack, &list.str[i]);
       continue;
     }
-    // if (is_2arg_function(&list.str[i])) {
-    //   is_2arg_f(&new_stack, &list.str[i]);
-    //   continue;
-    // }
     if (is_op_or_bracket_or_comma(&list.str[i].st[0])) {
       is_operation(&new_stack, &list.str[i]);
       continue;

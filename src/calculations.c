@@ -17,7 +17,7 @@ static int choose(const char* str) {
   return -1;
 }
 
-void is_f(COMPLEX_ARR* arr, WORD* word) {
+void is_f(const COMPLEX_ARR* arr, const WORD* word) {
   comp (*functions[])(comp) = {ccos, csin, ctan, clog, clog10, csqrt, cabsd, cexp, u, creald, cimagd, mag, phase, empty, empty};
   const int index = choose(word->st);
   comp z = arr->arr[arr->current - 1];

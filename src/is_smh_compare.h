@@ -7,7 +7,6 @@ int is_u_min(const char* s, const char* previous_s,int i);
 int is_op_or_bracket_or_comma(const char* s);
 int is_num(const WORD* word);
 int is_function(const WORD* word);
-// int is_2arg_function(const WORD* word);
 int is_const(const WORD* word);
 int compare(const char* to, const char* vs);
 
