@@ -39,7 +39,7 @@ static int choose_c(const char* str) {
 }
 
 void is_operation(COMPLEX_ARR* arr, const WORD* word) {
-  comp (*operations[])(comp, comp) = {plus, minus, multiplication, division, exponentiation, full_log};
+  comp (*operations[])(comp, comp) = {plus, minus, multiplication, division, exponentiation};
   const int index = choose_c(word->st);
   if (index == 5) {
     if (strcmp((word + 1)->st, "log") == 0) {
